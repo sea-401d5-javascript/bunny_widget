@@ -4,9 +4,9 @@ For this assignment, build three different display directives for an image url:
  1. The second directive should display the image as a "thumbnail" (within a 100x100 pixel scale). 
  1. The third directive should display the title, the full-size image, and the description. 
 
-You can use your own URL, or use this cute bunny: http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg 
+You can use your own URL, or work with this cute bunny: http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg 
 
-You should create a sample page that loads all three different directives for a single image, to demonstrate the distinctions between each.
+Create a sample page that loads all three different directives for a single hard-coded url, to demonstrate the distinctions between each display mode.
 
 # Requirements
 App requirements: 6pts
@@ -22,4 +22,5 @@ Code style: 3pts
   
 Git usage: 1pt
   - Well-structured pull request
-  - Acurate commit messages
+  - Accurate commit messages
+  - Clear, readable git history
