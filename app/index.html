@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Butt Sniffer App</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body data-ng-app="ButtSnifferApp">
+    <main ng-cloak ng-controller="ButtSniffeController as sniffy">
+
+      <first-directive>
+        <h3>{{sniffy.title}}</h3>
+        <h3>{{sniffy.url}}</h3>
+        <h3>{{sniffy.description}}</h3>
+      </first-directive>
+
+      <second-directive url="{{sniffy.url}}" width="{{sniffy.width}}" height="{{sniffy.height}}" alt="{{sniffy.title}}">
+      </second-directive>
+    </main>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
