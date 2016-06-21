@@ -2,24 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="./style.css">
     <title>Bunny App</title>
   </head>
   <body data-ng-app="BunnyApp">
-    <main ng-cloak>
-      <div ng-controller="titleController as titles">
-        <title-directive title="{{titles.title}}" url="{{titles.url}}" description="{{titles.description}}"></title-directive>
-      </div>
-      <div ng-controller="thumbnailController as thumbs">
-        <thumbnail-display url="{{thumbs.url}}" width="{{thumbs.width}}" height="{{thumbs.height}}"></thumbnail-display>
-      </div>
-      <div ng-controller="imageController as images">
-        <image-display url="{{images.url}}" width="{{images.width}}" height="{{images.height}}" description="{{images.description}}"></image-display>
-        <div ng-controller="titleController as titles">
-          <title-directive description="{{titles.description}}"></title-directive>
-          //need to make a new controller, html and directive for picture.
-        </div>
-      </div>
+    <main ng-cloak ng-controller="imageController as settings">
+
+        <title-directive title="{{settings.title}}" url="{{settings.url}}" description="{{settings.description}}"></title-directive>
+
+        <thumbnail-display url="{{settings.url}}"></thumbnail-display>
+
+        <image-display url="{{settings.url}}" height="{{settings.height}}" width="{{settings.width}}" title="{{settings.title}}" big="{{settings.big}}"></image-display>
+
     </main>
     <script src="bundle.js"></script>
   </body>

@@ -2,14 +2,12 @@
 module.exports = function(app){
   app.directive('thumbnailDisplay', function(){
     return{
-      restrict: 'E',
-      template: '<img src="{{url}}" height="{{height}}" width="{{width}}" alt="{{title}}">',
+      restrict: 'AEC',
+      templateUrl: './templates/firstApp/thumbnail.html',
       scope: {
         url: '@',
         height: '@',
-        width: '@',
-        alt: '@title',
-        description: '@'
+        width: '@'
       }
     };
   });

@@ -6,8 +6,8 @@ const clean = require('gulp-clean');
 
 const paths = {
   js: __dirname + '/app/**/*.js',
-  html: __dirname + '/app/**/*.html',
-  css: __dirname + '/app/**/*.css'
+  html: __dirname + '/app/**/*.html'
+  // css: __dirname + '/app/**/*.css'
 };
 
 gulp.task('clean', ()=>{
@@ -20,10 +20,10 @@ gulp.task('copy-html', ['clean'], ()=>{
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('copy-css', ['clean'], ()=>{
-  return gulp.src(paths.css)
-    .pipe(gulp.dest('./build'));
-});
+// gulp.task('copy-css', ['clean'], ()=>{
+//   return gulp.src(paths.css)
+//     .pipe(gulp.dest('./build'));
+// });
 
 gulp.task('bundle', ['clean'], ()=>{
   return gulp.src(paths.js)
