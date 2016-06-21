@@ -1,8 +1,8 @@
 module.exports = function(app) {
-  app.directive('fullSizeDirective', function() {
+  app.directive('fullDirective', function() {
     return {
       restrict: 'E',
-      templateUrl: './templates/BunnyApp/description.html',
+      templateUrl: './templates/BunnyApp/full.html',
       scope: {
         title: '@',
         url: '@',
