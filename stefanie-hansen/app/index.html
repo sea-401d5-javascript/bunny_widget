@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>First App</title>
-    <link rel="stylesheet" href="app.css">
+    <title>Bunny Images</title>
 </head>
 
-<body data-ng-app="FirstApp">
+<body data-ng-app="BunnyApp">
 
-    <main ng-cloak>
+    <main ng-cloak ng-controller="ImageController as image">
 
-      <first-directive></first-directive>
+      <description-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></description-directive>
 
+      <full-size-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></full-size-directive>
 
-
+      <thumbnail-directive url="{{image.url}}" description="{{image.description}}"></thumbnail-directive>
 
     </main>
     <script src="bundle.js"></script>

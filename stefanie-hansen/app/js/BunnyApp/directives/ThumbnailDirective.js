@@ -5,7 +5,6 @@ module.exports = function(app) {
       templateUrl: './templates/BunnyApp/thumbnail.html',
       scope: {
         url: '@',
-        width: '@',
         description: '@'
       }
     };

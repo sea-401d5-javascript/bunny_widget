@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  app.directive('descriptionDirective', function() {
+  app.directive('fullSizeDirective', function() {
     return {
       restrict: 'E',
       templateUrl: './templates/BunnyApp/description.html',
