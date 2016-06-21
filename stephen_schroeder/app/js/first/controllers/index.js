@@ -1,3 +1,3 @@
 module.exports = function(app) {
-  require('./FirstController')(app);
+  require('./bunny_controller')(app);
 };
