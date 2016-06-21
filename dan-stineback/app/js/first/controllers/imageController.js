@@ -1,9 +1,9 @@
 'use strict';
 module.exports = function(app) {
   app.controller('imageController', ['$scope', function() {
-    this.url = 'https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg';
+    this.url = 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg';
     this.height = 400;
     this.width = 400;
-    this.title = 'Food';
+    this.title = 'Bunny';
   }]);
 };
