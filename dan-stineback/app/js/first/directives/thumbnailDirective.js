@@ -8,7 +8,8 @@ module.exports = function(app){
         url: '@',
         height: '@',
         width: '@',
-        alt: '@title'
+        alt: '@title',
+        description: '@'
       }
     };
   });

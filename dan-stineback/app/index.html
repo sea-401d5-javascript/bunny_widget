@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="./style.css">
-    <title></title>
+    <title>Bunny App</title>
   </head>
-  <body data-ng-app="FirstApp">
+  <body data-ng-app="bunnyApp">
+    <main ng-cloak>
+      <div ng-controller="thumbnailController as thumb">
+        <h1>Title {{thumb.title}}</h1>
+        <h3>Picture sourece {{thumb.url}}</h3>
+        <h4>Description: {{description}}</h4>   
+      </div>
+      <div ng-controller="thumbnailController as thumb">
+        <thumbnail-display url="{{thumb.url}}" width="{{thumb.width}}" height="{{thumb.height}}"></thumbnail-display>
+      </div>
+      <div ng-controller="imgageController as image">
+        <image-display url="{{image.url}}" width="{{image.width}}" height="{{image.height}}" description="{{image.description}}"></image-display>
+      </div>
+    </main>
 
   </body>
 </html>
