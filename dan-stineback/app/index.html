@@ -9,15 +9,16 @@
     <main ng-cloak>
       <div ng-controller="titleController as titles">
         <title-directive title="{{titles.title}}" url="{{titles.url}}" description="{{titles.description}}"></title-directive>
-        <!-- <h1>Title: {{titles.title}}</h1>
-        <h3>Picture source:{{titles.url}}</h3>
-        <h4>Description: {{titles.description}}</h4> -->
       </div>
       <div ng-controller="thumbnailController as thumbs">
         <thumbnail-display url="{{thumbs.url}}" width="{{thumbs.width}}" height="{{thumbs.height}}"></thumbnail-display>
       </div>
       <div ng-controller="imageController as images">
         <image-display url="{{images.url}}" width="{{images.width}}" height="{{images.height}}" description="{{images.description}}"></image-display>
+        <div ng-controller="titleController as titles">
+          <title-directive description="{{titles.description}}"></title-directive>
+          //need to make a new controller, html and directive for picture.
+        </div>
       </div>
     </main>
     <script src="bundle.js"></script>
