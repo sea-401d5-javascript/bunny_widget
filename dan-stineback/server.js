@@ -5,5 +5,5 @@ const app = express();
 app.use(express.static(__dirname + '/build'));
 
 app.listen(3030, () => {
-  console.log('server is running on 8080');
+  console.log('server is running on 3030');
 });
