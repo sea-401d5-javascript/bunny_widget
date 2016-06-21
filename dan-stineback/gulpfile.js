@@ -49,6 +49,6 @@ gulp.task('watch', ()=>{
   gulp.watch('./app/*', ['build']);
 });
 
-gulp.task('build', ['clean', 'copy', 'bundle']);
+gulp.task('build', ['clean', 'copy-html', 'bundle']);
 
 gulp.task('default', ['build']);

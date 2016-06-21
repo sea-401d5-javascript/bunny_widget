@@ -7,16 +7,16 @@
   </head>
   <body data-ng-app="bunnyApp">
     <main ng-cloak>
-      <div ng-controller="thumbnailController as thumb">
-        <h1>Title {{thumb.title}}</h1>
-        <h3>Picture sourece {{thumb.url}}</h3>
-        <h4>Description: {{description}}</h4>   
+      <div ng-controller="thumbnailController as thumbs">
+        <h1>Title {{thumbs.title}}</h1>
+        <h3>Picture sourece {{thumbs.url}}</h3>
+        <h4>Description: {{description}}</h4>
       </div>
-      <div ng-controller="thumbnailController as thumb">
-        <thumbnail-display url="{{thumb.url}}" width="{{thumb.width}}" height="{{thumb.height}}"></thumbnail-display>
+      <div ng-controller="thumbnailController as thumbs">
+        <thumbnail-display url="{{thumbs.url}}" width="{{thumbs.width}}" height="{{thumbs.height}}"></thumbnail-display>
       </div>
-      <div ng-controller="imgageController as image">
-        <image-display url="{{image.url}}" width="{{image.width}}" height="{{image.height}}" description="{{image.description}}"></image-display>
+      <div ng-controller="imageController as images">
+        <image-display url="{{images.url}}" width="{{images.width}}" height="{{images.height}}" description="{{images.description}}"></image-display>
       </div>
     </main>
 

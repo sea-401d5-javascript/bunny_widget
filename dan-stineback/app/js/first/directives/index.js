@@ -1,5 +1,5 @@
 'use strict';
 module.exports =function(app) {
-  require('./thumbnailController')(app);
-  require('./imageController')(app);
+  require('./thumbnailDirective')(app);
+  require('./imageDirective')(app);
 };
