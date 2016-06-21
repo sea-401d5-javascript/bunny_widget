@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cute Bunny</title>
+  </head>
+    <body ng-app="BunnyApp">
+      <main ng-cloak ng-controller="BunnyController as bunny">
+        <first-directive title="{{bunny.title}}" url="{{bunny.url}}" desc="{{bunny.desc}}"></first-directive>
+        <second-directive title="{{bunny.title}}" url="{{bunny.url}}"></second-directive>
+        <third-directive title="{{bunny.title}}" url="{{bunny.url}}" desc="{{bunny.desc}}"></third-directive>
+      </main>
+      <script src="bundle.js"></script>
+    </body>
+</html>
