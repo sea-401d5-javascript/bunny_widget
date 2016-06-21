@@ -9,16 +9,22 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body data-ng-app="ButtSnifferApp">
-    <main ng-cloak ng-controller="ButtSniffeController as sniffy">
+    <main ng-cloak ng-controller="ButtSnifferController as sniffy">
 
-      <first-directive>
-        <h3>{{sniffy.title}}</h3>
-        <h3>{{sniffy.url}}</h3>
-        <h3>{{sniffy.description}}</h3>
-      </first-directive>
 
-      <second-directive url="{{sniffy.url}}" width="{{sniffy.width}}" height="{{sniffy.height}}" alt="{{sniffy.title}}">
-      </second-directive>
+
+      <first-image-directive url="{{sniffy.url}}"  title="{{sniffy.title}}" description="{{sniffy.description}}">
+      </first-image-directive>
+
+      <tiny-image-directive url="{{sniffy.url}}" height="sniffy.height" width="sniffy.height">
+      </tiny-image-directive>
+
+
+      <full-image-directive title ="{{sniffy.title}}" url="{{sniffy.url}}" description="{{sniffy.description}}">
+      </full-image-directive>
+
+
+
     </main>
     <script src="bundle.js"></script>
 </body>
