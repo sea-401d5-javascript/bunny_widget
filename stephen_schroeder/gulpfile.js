@@ -1,56 +1,38 @@
-var gulp = require('gulp');
-//var mocha = require('gulp-mocha');
-var webpack = require('webpack-stream');
-//var Karma = require('karma').Server;
+'use strict';
 
-gulp.task('webpack:dev', function() {
-  return gulp.src('./app/js/client.js')
+const clean = require('gulp-clean');
+const gulp = require('gulp');
+const webpack = require('webpack-stream');
+
+const paths = {
+  js: __dirname + '/app/**/*.js',
+  html: __dirname + '/app/*.html',
+  css: __dirname + '/app/css/*.css',
+  templates: __dirname + '/app/templates/**/*.html'
+};
+
+gulp.task('clean', ()=>{
+  gulp.src('./build/*')
+    .pipe(clean());
+});
+
+gulp.task('copy', ()=>{
+  gulp.src(paths.html)
+    .pipe(gulp.dest('./build'));
+  gulp.src(paths.css)
+    .pipe(gulp.dest('./build'));
+});
+
+gulp.task('bundle', ()=>{
+  gulp.src(paths.js)
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
       }
     }))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('./build'));
 });
 
-// gulp.task('webpack:test', function() {
-//   return gulp.src('./test/client/entry.js')
-//     .pipe(webpack({
-//       output: {
-//         filename: 'test_bundle.js'
-//       }
-//     }))
-//     .pipe(gulp.dest('test/client'));
-// });
+gulp.task('build', ['copy', 'bundle']);
 
-gulp.task('staticfiles:dev', function() {
-  return gulp.src('./app/**/*.html')
-  .pipe(gulp.dest('build/'));
-});
-
-gulp.task('staticcssfiles:dev', function() {
-  return gulp.src('./app/css/*.css')
-  .pipe(gulp.dest('build/'));
-});
-
-// gulp.task('servertests', function() {
-//   return gulp.src('./test/api_test/**/*tests.js')
-//     .pipe(mocha({reporter: 'nyan'}))
-//     .once('error', function(err) {
-//       console.log(err);
-//       process.exit(1);
-//     })
-//     .once('end', function() {
-//       if (this.seq.length === 1 && this.seq[0] === 'servertests')
-//         process.exit();
-//     }.bind(this));
-// });
-
-// gulp.task('karmatests', ['webpack:test'], function(done) {
-//   new Karma({
-//     configFile: __dirname + '/karma.conf.js'
-//   }, done).start();
-// });
-
-gulp.task('build:dev', ['staticfiles:dev','staticcssfiles:dev', 'webpack:dev']);
-gulp.task('default', ['build:dev']);
+gulp.task('default', ['build']);

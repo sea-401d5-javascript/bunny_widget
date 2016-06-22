@@ -1,3 +1,5 @@
 module.exports = function(app) {
-  require('./FirstDirective')(app);
+  require('./DescriptionDirective')(app);
+  require('./FullDirective')(app);
+  require('./ThumbDirective')(app);
 };

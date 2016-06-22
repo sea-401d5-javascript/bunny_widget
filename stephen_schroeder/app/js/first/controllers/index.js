@@ -1,3 +1,3 @@
 module.exports = function(app) {
-  require('./FirstController')(app);
+  require('./BunnyController')(app);
 };
