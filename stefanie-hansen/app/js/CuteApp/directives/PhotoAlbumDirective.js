@@ -8,6 +8,11 @@ module.exports = function(app) {
         title: '@',
         description: '@'
       }
+      link: function($scope, ele, attr) {
+        ele.bind('click', function() {
+          
+        })
+      }
     };
   });
 };
