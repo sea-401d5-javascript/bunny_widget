@@ -5,6 +5,11 @@ module.exports = function(app) {
   function PhotosController() {
     this.model = {};
     this.mode = 'full';
+    this.height = 400;
+    this.width = 400;
+    this.url = [];
+    this.title = '';
+    this.description = '';
     this.changemode = function(mode) {
       this.mode = mode;
       console.log(this, this.mode, mode);
