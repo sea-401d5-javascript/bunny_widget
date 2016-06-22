@@ -1,9 +1,10 @@
 module.exports = function(app) {
-  app.directive('thumbnailDirective', function() {
+  app.directive('descriptionDirective', function() {
     return {
       restrict: 'E',
-      templateUrl: './templates/BunnyApp/thumbnail.html',
+      templateUrl: './templates/CuteApp/description.html',
       scope: {
+        title: '@',
         url: '@',
         description: '@'
       }

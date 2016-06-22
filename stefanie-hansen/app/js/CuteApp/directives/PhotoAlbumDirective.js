@@ -1,11 +1,11 @@
 module.exports = function(app) {
-  app.directive('descriptionDirective', function() {
+  app.directive('photoAlbumDirective', function() {
     return {
       restrict: 'E',
-      templateUrl: './templates/BunnyApp/description.html',
+      templateUrl: './templates/CuteApp/album.html',
       scope: {
+        images: '@',
         title: '@',
-        url: '@',
         description: '@'
       }
     };
