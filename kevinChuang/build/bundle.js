@@ -31565,7 +31565,7 @@
 	    this.image = 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
 	    this.height = 400,
 	    this.width = 400,
-	    this.description = 'Mr. Fluffington is ready for his salad'
+	    this.description = 'Mr. Fluffington is ready for his salad.'
 	  }]);
 	};
 
@@ -31610,12 +31610,10 @@
 	  app.directive('smallBunnyImage', function() {
 	    return {
 	      restrict: 'E',
-	      templateUrl: './template/bunny/full_bunny.html',
+	      templateUrl: './template/bunny/small_bunny.html',
 	      scope: {
 	        title: '@',
 	        image: '@',
-	        height: '@',
-	        width: '@',
 	        description: '@'
 	      }
 	    };
@@ -31631,12 +31629,10 @@
 	  app.directive('noBunnyImage', function() {
 	    return {
 	      restrict: 'E',
-	      templateUrl: './template/bunny/full_bunny.html',
+	      templateUrl: './template/bunny/no_bunny.html',
 	      scope: {
 	        title: '@',
 	        image: '@',
-	        height: '@',
-	        width: '@',
 	        description: '@'
 	      }
 	    };
