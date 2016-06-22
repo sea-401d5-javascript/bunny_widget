@@ -1,18 +1,18 @@
-<div ng-if="mode === 'single'" ng-click="showArticle(photo)">
+<div ng-if="mode === 'single'">
   <ul>
     <li ng-repeat="photo in photos">
-      <tiny-image-directive url="photo.url"></tiny-image-directive>
-      <div ng-if="mode === 'text'">
+      <tiny-image-directive ng-click="toggle($event, image)" url="photo.url"></tiny-image-directive>
+      <div ng-hide="photoTextAgain" ng-show="photoText">
         <first-image-directive title="photo.title"></first-image-directive>
       </div>
     </li>
   </ul>
 </div>
-<div ng-if="mode === 'list'" ng-click="showArticle()">
+<div ng-if="mode === 'list'">
   <ul>
     <li ng-repeat="photo in photos">
-      <full-image-directive url="photo.url"></full-image-directive>
-      <div ng-if="mode === 'text'">
+      <full-image-directive ng-click="toggle($event, image)" url="photo.url"></full-image-directive>
+      <div ng-show="photoText">
         <first-image-directive title="photo.title"></first-image-directive>
       </div>
     </li>
@@ -21,4 +21,3 @@
 
 <lable>Full Image Album<input type="radio" name="mode" value="list" ng-model="mode" ng-change="changeView()"/></lable>
 <lable>Tiny Image Album<input type="radio" name="mode" value="single" ng-model="mode" ng-change="changeView()"/></lable>
-<lable>Text<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"/></lable>

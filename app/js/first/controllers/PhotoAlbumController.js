@@ -12,15 +12,18 @@ function PhotoAlbumController() {
     album: [
       {
         url: 'http://f.tqn.com/y/exoticpets/1/W/R/Q/1/96747320-crop.jpg',
-        title: 'Chillin on some wood, no glide mode'
+        title: 'Chillin on some wood, no glide mode',
+        textDisplay: false
       },
       {
         url: 'http://www.rkpuppiesandmore.com/smallpets/sugarglider.jpg',
-        title: 'Ridin that I dont know what, but supermanning that surface'
+        title: 'Ridin that I dont know what, but supermanning that surface',
+        textDisplay: false
       },
       {
         url: 'http://rainforestreports.weebly.com/uploads/1/5/5/7/15578800/8932099_orig.jpg',
-        title: 'Swoopin in on yall'
+        title: 'Swoopin in on yall',
+        textDisplay: false
       }
     ]
   };

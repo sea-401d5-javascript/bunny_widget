@@ -9,16 +9,20 @@ module.exports = function(app) {
         description: '='
       },
       controller: function($scope) {
+        $scope.photoText = false;
+        $scope.photoTextAgain = true;
         $scope.changeView = function() {
           console.log($scope.mode);
         };
-        $scope.showArticle = function(photo) {
-          if (!photo) {
-            $scope.mode = 'list';
-            return;
-          }
-          $scope.currentPhoto = photo;
-          $scope.mode = 'single';
+        $scope.toggle = function($event, image) {
+          // let foo = $event.currentTarget;
+          // if ($event.currentTarget != $event.currentTarget) {
+          //   $scope.photoText = false;
+          // } else {
+          $scope.photoText = !$scope.photoText;
+          $scope.photoTextAgain = !$scope.photoTextAgain;
+
+
         };
       }
     };
