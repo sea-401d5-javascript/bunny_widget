@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const app = express();
 
-express().use(express.static(__dirname + '/build'))
-.listen(8080, () => console.log('listening on 8080'));
+app.use(express.static(__dirname + '/build'));
+app.listen(3002, () => console.log('listening on 3002'));
