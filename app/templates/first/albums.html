@@ -1,17 +1,21 @@
+
+
+
 <div ng-if="mode === 'single'">
   <ul>
     <li ng-repeat="photo in photos">
-      <tiny-image-directive ng-click="toggle($event, image)" url="photo.url"></tiny-image-directive>
-      <div ng-hide="photoTextAgain" ng-show="photoText">
-        <first-image-directive title="photo.title"></first-image-directive>
-      </div>
+      <tiny-image-directive ng-show="photoTextAgain"   ng-click="toggle(photo)" url="photo.url"></tiny-image-directive>
     </li>
   </ul>
+  <div ng-show="photoText">
+    <full-image-directive ng-click="toggle(photo)" url="currentPhoto.url"></full-image-directive>
+  </div>
 </div>
+
 <div ng-if="mode === 'list'">
   <ul>
     <li ng-repeat="photo in photos">
-      <full-image-directive ng-click="toggle($event, image)" url="photo.url"></full-image-directive>
+      <full-image-directive ng-click="toggle(photo)" url="photo.url"></full-image-directive>
       <div ng-show="photoText">
         <first-image-directive title="photo.title"></first-image-directive>
       </div>

@@ -6,7 +6,8 @@ module.exports = function(app) {
       scope: {
         photos: '=',
         title: '=',
-        description: '='
+        description: '=',
+        photo: '='
       },
       controller: function($scope) {
         $scope.photoText = false;
@@ -14,11 +15,14 @@ module.exports = function(app) {
         $scope.changeView = function() {
           console.log($scope.mode);
         };
-        $scope.toggle = function($event, image) {
-          // let foo = $event.currentTarget;
-          // if ($event.currentTarget != $event.currentTarget) {
-          //   $scope.photoText = false;
-          // } else {
+        $scope.toggle = function(photo) {
+          console.log(photo);
+
+          $scope.currentPhoto = photo;
+          let photoArray = [];
+          photoArray.push(photo);
+          console.log(photoArray);
+
           $scope.photoText = !$scope.photoText;
           $scope.photoTextAgain = !$scope.photoTextAgain;
 
