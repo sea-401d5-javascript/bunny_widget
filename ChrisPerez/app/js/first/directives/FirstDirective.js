@@ -5,7 +5,9 @@ module.exports = function(app) {
       restrict: 'E',
       // transclude: true,
       scope: {
-        bunnyImageHead: '=bunnyhead'
+        title: '@',
+        description: '@',
+        url: '@'
       }
     };
 

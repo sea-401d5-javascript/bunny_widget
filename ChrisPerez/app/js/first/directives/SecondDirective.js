@@ -6,7 +6,11 @@ module.exports = function(app) {
       restrict: 'E',
       // transclude: true,
       scope: {
-        bunnyImageThumb: '=bunnythumb'
+        title: '@',
+        description: '@',
+        url: '@',
+        height: '@',
+        width: '@'
       }
     };
 

@@ -11,11 +11,11 @@
 
 <body data-ng-app="FirstApp">
 
-    <main ng-cloak ng-controller="FirstController">
+    <main ng-cloak ng-controller="FirstController as bunny">
 
-      <first-directive bunnyhead="bunny"></first-directive>
-      <second-directive bunnythumb="bunny"></second-directive>
-      <third-directive bunnyfull="bunny"></third-directive>
+      <first-directive title="{{bunny.title}}" description="{{bunny.description}}" url="{{bunny.url}}"></first-directive>
+      <second-directive src="{{bunny.url}}" alt="{{bunny.description}}" width="{{bunny.width}}"></second-directive>
+      <third-directive src="{{bunny.url}}" alt="{{bunny.description}}" width="{{bunny.width}}"></third-directive>
 
 
 

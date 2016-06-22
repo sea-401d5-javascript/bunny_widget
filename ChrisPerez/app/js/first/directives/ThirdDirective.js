@@ -6,7 +6,11 @@ module.exports = function(app) {
       restrict: 'E',
       // transclude: true,
       scope: {
-        bunnyImageFull: '=bunnyfull'
+        title: '@',
+        description: '@',
+        url: '@',
+        height: '@',
+        width: '@'
       }
     };
 
