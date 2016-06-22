@@ -14,8 +14,8 @@
     <main ng-cloak ng-controller="FirstController as bunny">
 
       <first-directive title="{{bunny.title}}" description="{{bunny.description}}" url="{{bunny.url}}"></first-directive>
-      <second-directive src="{{bunny.url}}" alt="{{bunny.description}}" width="{{bunny.width}}"></second-directive>
-      <third-directive src="{{bunny.url}}" alt="{{bunny.description}}" width="{{bunny.width}}"></third-directive>
+      <second-directive url="{{bunny.url}}" description="{{bunny.description}}" width="{{bunny.width}}"></second-directive>
+      <third-directive url="{{bunny.url}}" description="{{bunny.description}}" width="{{bunny.width}}"></third-directive>
 
 
 
