@@ -1,5 +1,13 @@
 <div>
-  <img src="{{url}}" height="{{height}}" width="{{width}}"><br>
-  <img src="{{url}}" height="100px" width="100px">
-
+</ul ng-hide="mode === 'single'">
+      <photo body="photo.body" ng-repeat="photo in photos" ng-click="showPhoto(photo)"></photo>
+  <ul>
+</div>
+<div ng-hide="mode === 'list'" ng-click="showPhoto()">
+  {{currentPhoto.title}}
+  {{currentPhoto.body}}
+</div>
+<div class="">
+  <label for="">List<input type="radio" name="mode" value="list" ng-model="mode" ng-change="changeView"/></label>
+  <label for="">Single<input type="radio" name="mode" value="single" ng-model="mode" ng-chang="changeView"></label>
 </div>

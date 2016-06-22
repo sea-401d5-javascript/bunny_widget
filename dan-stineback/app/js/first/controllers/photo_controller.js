@@ -3,17 +3,13 @@ module.exports = function(app) {
   app.controller('PhotosController', PhotosController);
 
   function PhotosController() {
-    this.model = {};
-    this.mode = 'full';
     this.height = 400;
     this.width = 400;
     this.url = [];
     this.title = '';
     this.description = '';
-    this.changemode = function(mode) {
-      this.mode = mode;
-      console.log(this, this.mode, mode);
-    };
+    this.photos = [];
+
 
     this.dragonPhotos = [
       {
