@@ -10,7 +10,7 @@ gulp.task('webpack:dev', function() {
         filename: 'bundle.js'
       }
     }))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('build/'))
 });
 
 // gulp.task('webpack:test', function() {
