@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>Cute Bunny</title>
   </head>
-    <body ng-app="BunnyApp">
-      <main ng-cloak ng-controller="BunnyController as bunny">
-        <first-directive title="{{bunny.title}}" url="{{bunny.url}}" desc="{{bunny.desc}}"></first-directive>
-        <second-directive title="{{bunny.title}}" url="{{bunny.url}}"></second-directive>
-        <third-directive title="{{bunny.title}}" url="{{bunny.url}}" desc="{{bunny.desc}}"></third-directive>
+    <body ng-app="AlbumApp">
+      <main ng-cloak ng-controller="AlbumController as album">
+        <album-directive mode="'photos'" photos="album.catPhotos" title="album.catTitle" desc="album.catDesc"></album-directive>
+        <album-directive mode="'photos'" photos="album.dogPhotos" title="album.dogTitle" desc="album.dogDesc"></album-directive>
+        <album-directive mode="'photos'" photos="album.lemurPhotos" title="album.lemurTitle" desc="album.lemurDesc"></album-directive>
       </main>
       <script src="bundle.js"></script>
     </body>
