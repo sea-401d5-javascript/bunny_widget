@@ -1,13 +1,12 @@
 'use strict';
 module.exports = function(app){
-  app.directive('photoDirective', function(){
+  app.directive('photoAlbum', function(){
     return{
       restrict: 'AEC',
       templateUrl: './templates/firstApp/photo.html',
       scope: {
+        photos: '=',
         url: '=',
-        height: '=',
-        width: '=',
         title: '=',
         description: '='
       },
@@ -26,9 +25,6 @@ module.exports = function(app){
           $scope.mode = 'single';
         };
 
-        $scope.addPhoto = function(title, url) {
-          $scope.photos.push({title, url});
-        };
       }
     };
   });

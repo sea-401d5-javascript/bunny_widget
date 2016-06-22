@@ -5,7 +5,7 @@
     <title>Bunny App</title>
   </head>
   <body data-ng-app="BunnyApp">
-    <main ng-cloak ng-controller="imageController as settings">
+    <main ng-cloak ng-controller="PhotosController as albums">
       <!-- <div>
 
         <title-directive title="{{settings.title}}" url="{{settings.url}}" description="{{settings.description}}"></title-directive>
@@ -15,10 +15,16 @@
         <image-display url="{{settings.url}}" height="{{settings.height}}" width="{{settings.width}}" title="{{settings.title}}" big="{{settings.big}}"></image-display>
       </div> -->
 
-      <div ng-controller="PhotosController as photosctrl">
-        {{photosctrl.title}}
-        <photo-directive addPhoto="photosctrl.addPhoto" photos="photoctrl.photos"></photo-directive>
-      </div>
+
+      <h1>{{albums.dragonPhotos.title}}</h1>
+      <h3>{{albums.dragonPhotos.description}}</h1>
+      <photo-album photos="albums.dragonPhotos.album"></photo-album>
+      <h1>{{albums.cowPhotos.title}}</h1>
+      <h3>{{albums.cowPhotos.description}}</h1>
+      <photo-album photos="albums.cowPhotos.album"></photo-album>
+      <h1>{{albums.pupPhotos.title}}</h1>
+      <h3>{{albums.pupPhotos.description}}</h1>
+      <photo-album photos="albums.pupPhotos.album"></photo-album>
 
     </main>
     <script src="bundle.js"></script>

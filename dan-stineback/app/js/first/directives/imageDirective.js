@@ -5,12 +5,12 @@ module.exports = function(app){
       restrict: 'AEC',
       templateUrl: './templates/firstApp/image.html',
       scope: {
-        url: '@',
-        height: '@',
-        width: '@',
-        title: '@',
-        description: '@',
-        big: '@'
+        url: '=',
+        height: '=',
+        width: '=',
+        title: '=',
+        description: '=',
+        big: '='
       }
     };
   });

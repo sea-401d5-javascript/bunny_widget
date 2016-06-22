@@ -5,9 +5,9 @@ module.exports = function(app){
       restrict: 'AEC',
       templateUrl: './templates/firstApp/thumbnail.html',
       scope: {
-        url: '@',
-        height: '@',
-        width: '@'
+        url: '=',
+        height: '=',
+        width: '='
       }
     };
   });

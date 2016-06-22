@@ -1,13 +1,26 @@
-<div>
-</ul ng-hide="mode === 'single'">
-      <photo body="photo.body" ng-repeat="photo in photos" ng-click="showPhoto(photo)"></photo>
+
+<div ng-if="mode === 'single'" ng-click="showPhoto(photo)">
   <ul>
+    <li ng-repeat="photo in photos">
+      <thumbnail-display url="photo.url"></thumbnail-display>
+      <div ng-if="mode === 'text'">
+        <image-dispaly title="photo.title"></image-display>
+      </div>
+    </li>
+  </ul>
 </div>
-<div ng-hide="mode === 'list'" ng-click="showPhoto()">
-  {{currentPhoto.title}}
-  {{currentPhoto.body}}
+<div ng-if="mode === 'list'" ng-click="showPhoto()">
+  <ul>
+    <li ng-repeat="photo in photos">
+      <image-display url="photo.url"></image-display>
+      <div ng-if="mode === 'text'">
+        <photo-directive title="photo.title"></photo-directive>
+      </div>
+    </li>
+  </ul>
 </div>
 <div class="">
-  <label for="">List<input type="radio" name="mode" value="list" ng-model="mode" ng-change="changeView"/></label>
-  <label for="">Single<input type="radio" name="mode" value="single" ng-model="mode" ng-chang="changeView"></label>
+  <label for="">Normal size<input type="radio" name="mode" value="list" ng-model="mode" ng-change="changeView"/></label>
+  <label for="">Thumbnail<input type="radio" name="mode" value="single" ng-model="mode" ng-chang="changeView"></label>
+  <lable>Text<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"/></lable>
 </div>

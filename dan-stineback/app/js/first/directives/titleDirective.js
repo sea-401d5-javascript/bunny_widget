@@ -5,9 +5,9 @@ module.exports = function(app) {
       templateUrl: './templates/firstApp/bunnyApp.html',
       restrict: 'AEC',
       scope: {
-        title: '@',
-        description: '@',
-        url: '@'
+        title: '=',
+        description: '=',
+        url: '='
       }
     };
 
