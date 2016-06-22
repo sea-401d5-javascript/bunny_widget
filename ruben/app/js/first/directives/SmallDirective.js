@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  app.directive('SmallDirective', function() {
+  app.directive('smallDirective', function() {
     return {
       restrict: 'E',
       templateUrl: './templates/small-image.html',

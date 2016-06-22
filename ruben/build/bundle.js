@@ -31590,7 +31590,7 @@
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
-	  app.directive('FullDirective', function() {
+	  app.directive('fullDirective', function() {
 	    return {
 	      restrict: 'E',
 	      templateUrl: './templates/full-image.html',
@@ -31609,7 +31609,7 @@
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
-	  app.directive('FirstDirective', function() {
+	  app.directive('titleDirective', function() {
 	    return {
 	      restrict: 'E',
 	      templateUrl: './templates/title-image.html',
@@ -31628,7 +31628,7 @@
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
-	  app.directive('SmallDirective', function() {
+	  app.directive('smallDirective', function() {
 	    return {
 	      restrict: 'E',
 	      templateUrl: './templates/small-image.html',

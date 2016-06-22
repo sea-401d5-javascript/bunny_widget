@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  app.directive('FullDirective', function() {
+  app.directive('fullDirective', function() {
     return {
       restrict: 'E',
       templateUrl: './templates/full-image.html',
