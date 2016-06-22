@@ -1,4 +1,4 @@
 const angular =  require('angular');
-const app = angular.module('BunnyApp', []);
+const app = angular.module('PhotoAlbum', []);
 
-require('./bunny')(app);
+require('./photoalbum')(app);

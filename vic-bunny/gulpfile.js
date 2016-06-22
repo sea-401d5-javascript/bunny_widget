@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const webpack = require('webpack-stream');
 
-var files = ['*.js', './app/*.js', './app/js/*.js', './app/js/bunny/*.js', './app/js/bunny/controllers/*.js', './app/js/bunny/directives/*.js'];
+var files = ['*.js', './app/*.js', './app/js/*.js', './app/js/photoalbum/*.js', './app/js/photoalbum/controllers/*.js', './app/js/photoalbum/directives/*.js'];
 
 const paths = {
   js:__dirname + '/app/js/**/**/*.js',
