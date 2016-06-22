@@ -10,6 +10,7 @@ module.exports = function(app){
         title: '=',
         description: '='
 
+
       },
       controller: function($scope) {
         $scope.changeView = function() {

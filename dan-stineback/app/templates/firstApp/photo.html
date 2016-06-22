@@ -1,26 +1,27 @@
 
-<div >
+<div ng-if="mode === 'tiny'">
   <ul>
     <li ng-repeat="photo in photos">
       <thumbnail-display url="photo.url"></thumbnail-display>
-      <!-- <div ng-if="mode === 'text'">
+      <div ng-if="mode === 'text'">
         <image-dispaly title="photo.title"></image-display>
-      </div> -->
+      </div>
     </li>
   </ul>
 </div>
-<div >
+
+<div ng-if="mode === 'normal'">
   <ul>
     <li ng-repeat="photo in photos">
       <image-display url="photo.url"></image-display>
-      <!-- <div ng-if="mode === 'text'">
+      <div ng-if="mode === 'text'">
       <photo-album title="photo.title"></photo-album>
-      </div> -->
+      </div>
     </li>
   </ul>
 </div>
 <div class="">
-  <label for="">Normal size<input type="radio" name="mode" value="list" ng-model="mode" ng-change="changeView"/></label>
-  <label for="">Thumbnail<input type="radio" name="mode" value="single" ng-model="mode" ng-chang="changeView"></label>
-  <lable>Text<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"/></lable>
+  <label for="">Normal size<input type="radio" name="mode" value="normal" ng-model="mode" ng-change="changeView"/></label>
+  <label for="">Thumbnail<input type="radio" name="mode" value="tiny" ng-model="mode" ng-chang="changeView"></label>
+  <lable>Hide Pictures<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"/></lable>
 </div>
