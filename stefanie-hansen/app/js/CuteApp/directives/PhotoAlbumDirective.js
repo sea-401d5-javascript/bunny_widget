@@ -7,11 +7,11 @@ module.exports = function(app) {
         images: '@',
         title: '@',
         description: '@'
-      }
-      link: function($scope, ele, attr) {
+      },
+      link: function($scope, ele) {
         ele.bind('click', function() {
-          
-        })
+          $scope.mode === 'grid' ? $scope.mode === 'table' : $scope.mode === 'grid';
+        });
       }
     };
   });

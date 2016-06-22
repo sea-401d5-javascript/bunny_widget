@@ -1,0 +1,8 @@
+<div>
+  <table ng-hide="mode === 'grid'">
+    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in sloths.images"> "></description-directive>
+  </table>
+  <table ng-hide="mode === 'table'">
+  </table>
+  <button photo-album-directive>Change View</button>
+</div>
