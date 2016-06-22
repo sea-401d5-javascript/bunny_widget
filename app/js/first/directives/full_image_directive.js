@@ -3,10 +3,9 @@ module.exports = function(app) {
     return {
       restrict: 'E',
       templateUrl: './templates/first/full_image_template.html',
+      replace: true,
       scope: {
-        title: '@',
-        url: '@',
-        description: '@'
+        url: '='
       }
     };
   });

@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body data-ng-app="ButtSnifferApp">
-    <main ng-cloak ng-controller="ButtSnifferController as sniffy">
+    <main ng-cloak ng-controller="PhotoAlbumController as albums">
+
+      <!-- <photo-album photoAlbums="{{albums.sugarGliders.album}}"></photo-album> -->
 
 
-
-      <first-image-directive url="{{sniffy.url}}"  title="{{sniffy.title}}" description="{{sniffy.description}}">
+      <!-- <first-image-directive url="{{sniffy.url}}"  title="{{sniffy.title}}" description="{{sniffy.description}}">
       </first-image-directive>
 
       <tiny-image-directive url="{{sniffy.url}}" height="sniffy.height" width="sniffy.height">
-      </tiny-image-directive>
+      </tiny-image-directive> -->
 
 
-      <full-image-directive title ="{{sniffy.title}}" url="{{sniffy.url}}" description="{{sniffy.description}}">
-      </full-image-directive>
+    <photo-album photos="albums.sugarGliders.album"></photo-album>
+    <photo-album photos="albums.sugarGliders.album"></photo-album>
+
 
 
 

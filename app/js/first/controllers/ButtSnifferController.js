@@ -7,5 +7,8 @@ module.exports = function(app) {
     this.width = 400;
     this.title =  'Butt Sniffer';
     this.description = 'Look at this crazy butt sniffer, how did he get there?';
+    this.title = '';
+    this.description = '';
+    this.album = [];
   }]);
 };
