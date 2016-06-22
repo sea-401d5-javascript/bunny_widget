@@ -1,3 +1,3 @@
 module.exports = function(app) {
-  require('./bunny_controller')(app);
+  require('./bunny_controller.js')(app);
 };
