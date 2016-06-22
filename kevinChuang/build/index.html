@@ -6,6 +6,8 @@
   </head>
   <body data-ng-app="BunnyApp">
     <main ng-cloak ng-controller="bunnyController as bunnyctrl">
+      <no-bunny-image image="{{bunnyctrl.image}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></no-bunny-image>
+      <small-bunny-image image="{{bunnyctrl.image}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></small-bunny-image>
       <full-bunny-image image="{{bunnyctrl.image}}" width="{{bunnyctrl.width}}" height="{{bunnyctrl.height}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></full-bunny-image>
     </main>
     <script src="bundle.js"></script>
