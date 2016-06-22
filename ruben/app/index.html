@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image App</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body data-ng-app="ImageApp">
+    <main ng-cloak ng-controller="ImageController as image">
+
+
+
+      <full-directive url="{{image.url}}"  title="{{image.title}}" description="{{image.description}}">
+      </full-directive>
+
+      <small-directive url="{{image.url}}" height="image.height" width="image.height">
+      </small-directive>
+
+
+      <title-directive title="{{image.title}}" url="{{image.url}}" description="{{image.description}}">
+      </title-directive>
+
+
+
+    </main>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
