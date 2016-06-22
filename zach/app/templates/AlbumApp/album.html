@@ -1,0 +1,16 @@
+<div>
+  <h2>{{title}}</h2>
+  <div ng-hide="mode !== 'photos'">
+    <ul>
+      <photo-directive ng-repeat="photo in photos" url="photo.url" ng-click="showPhoto(photo)"></photo-directive>
+    </ul>
+  </div>
+  <div ng-hide="mode !== 'text'">
+    <text-directive ng-repeat="photo in photos" title="photo.title"></text-directive>
+  </div>
+  <div ng-hide="mode !== 'single'">
+    <img src="{{currentPhoto.url}}">
+  </div>
+  <label>Photos<input type="radio" name="mode" value="photos" ng-model="mode" ng-change="changeView()"></label>
+  <label>Text<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"></label>
+</div>
