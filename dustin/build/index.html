@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="app.css">
 </head>
 
-<body data-ng-app="FirstApp">
+<body data-ng-app="BunnyApp">
 
-    <main ng-cloak>
+    <main ng-controller="ImageController as imagectrl" ng-cloak>
 
-      <first-directive></first-directive>
+      <first-directive url="{{imagectrl.url}}" title="{{imagectrl.title}}" desc="{{imagectrl.desc}}"></first-directive>
+      <hr />
+      <second-directive url="{{imagectrl.url}}"></second-directive>
+      <hr />
+      <third-directive url="{{imagectrl.url}}" title="{{imagectrl.title}}" desc="{{imagectrl.desc}}"></third-directive>
+
 
 
 

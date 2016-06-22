@@ -46,8 +46,8 @@
 
 	const angular = __webpack_require__(1);
 
-	var FirstApp = angular.module('FirstApp', []);
-	__webpack_require__(3)(FirstApp);
+	var BunnyApp = angular.module('BunnyApp', []);
+	__webpack_require__(3)(BunnyApp);
 
 
 /***/ },
@@ -31560,12 +31560,10 @@
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
-	  app.controller('MyController', ['$scope', function() {
-	    this.firstname = 'foo';
-	    this.lastname = 'bar';
-	    this.fullname = function() {
-	      return this.firstname + ' ' + this.lastname;
-	    };
+	  app.controller('ImageController', ['$scope', function() {
+	    this.url= 'http://pearlofcivilization.net/images/218.jpg';
+	    this.title = 'Cute Bunny';
+	    this.desc = 'Bunny smok\'n a cig';
 	  }]);
 	};
 
@@ -31576,6 +31574,8 @@
 
 	module.exports = function(app) {
 	  __webpack_require__(7)(app);
+	  __webpack_require__(8)(app);
+	  __webpack_require__(9)(app);
 	};
 
 
@@ -31587,7 +31587,49 @@
 	  app.directive('firstDirective', function() {
 	    return {
 	      //template: '<h1>First Directive</h1>'
-	      templateUrl: './templates/FirstApp/FirstApp.html'
+	      templateUrl: './templates/BunnyApp/text.html',
+	      scope:{
+	        url: '@',
+	        title: '@',
+	        desc: '@'
+	      }
+	    };
+	  });
+	};
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	module.exports = function(app) {
+	  app.directive('secondDirective', function() {
+	    return {
+	      //template: '<h1>First Directive</h1>'
+	      templateUrl: './templates/BunnyApp/thumb.html',
+	      scope:{
+	        url: '@'
+	      }
+	    };
+
+	  });
+	};
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = function(app) {
+	  app.directive('thirdDirective', function() {
+	    return {
+	      //template: '<h1>First Directive</h1>'
+	      templateUrl: './templates/BunnyApp/large.html',
+	      scope:{
+	        url: '@',
+	        title: '@',
+	        desc: '@'
+	      }
 	    };
 
 	  });
