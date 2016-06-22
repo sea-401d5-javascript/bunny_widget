@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(app){
-  app.directive('imageDisplay', function(){
+  app.directive('photoDirective', function(){
     return{
       restrict: 'AEC',
       templateUrl: './templates/firstApp/photo.html',
@@ -9,7 +9,7 @@ module.exports = function(app){
         height: '@',
         width: '@',
         title: '@',
-        description: '@',
+        description: '@'
       }
     };
   });

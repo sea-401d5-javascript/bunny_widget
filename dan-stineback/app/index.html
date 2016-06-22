@@ -6,12 +6,18 @@
   </head>
   <body data-ng-app="BunnyApp">
     <main ng-cloak ng-controller="imageController as settings">
+      <div>
 
         <title-directive title="{{settings.title}}" url="{{settings.url}}" description="{{settings.description}}"></title-directive>
 
         <thumbnail-display url="{{settings.url}}"></thumbnail-display>
 
         <image-display url="{{settings.url}}" height="{{settings.height}}" width="{{settings.width}}" title="{{settings.title}}" big="{{settings.big}}"></image-display>
+      </div>
+
+      <div ng-controller="photoController as photos">
+        <photo-directive url="{{photos.url}}" height="{{photos.height}}" width="{{photos.width}}"></photo-directive>
+      </div>
 
     </main>
     <script src="bundle.js"></script>
