@@ -8,7 +8,7 @@ var files = ['*.js', './app/*.js', './app/js/*.js', './app/js/bunny/*.js', './ap
 
 const paths = {
   js:__dirname + '/app/js/**/**/*.js',
-  html:__dirname + '/app/index.html'
+  html:__dirname + '/app/**/*.html'
 };
 
 gulp.task('lint', () => {
@@ -23,7 +23,7 @@ gulp.task('copy', () => {
 });
 
 gulp.task('bundle', () => {
-  return gulp.src('./app/js/client.js')
+  return gulp.src(paths.js)
   .pipe(webpack({
     output: {
       filename: 'bundle.js'
