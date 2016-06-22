@@ -1,0 +1,22 @@
+'use strict';
+
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+
+const dbPort = process.env.MONGODB_URI || 'mongodb://localhost/dev_db';
+console.log('dbPort', dbPort);
+
+mongoose.connect(dbPort);
+
+app.use(morgan('dev'));
+
+app.use((req, res) => {
+  res.status(404).json({message: 'not found'});
+});
+
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log('up on 3000');
+});
