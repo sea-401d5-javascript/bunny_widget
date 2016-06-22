@@ -8,7 +8,7 @@ const paths = {
 };
 
 gulp.task('copy', () => {
-  gulp.src([paths.html, paths.css)
+  gulp.src([paths.html, paths.css])
     .pipe(gulp.dest('./build'));
 });
 
