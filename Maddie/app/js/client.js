@@ -2,5 +2,5 @@
 
 const angular = require('angular');
 
-var BunnyApp = angular.module('BunnyApp', []);
-require('./image-display')(BunnyApp);
+var app = angular.module('PhotoAlbumApp', []);
+require('./photo-album')(app);

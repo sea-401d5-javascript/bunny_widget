@@ -1,0 +1,17 @@
+<div>
+  <ul ng-hide="!hidden">
+    <small-image-directive url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></small-image-directive>
+  </ul>
+  <ul ng-hide="hidden">
+    <text-only-directive title="{{title}}" description="{{description}}"></text-only-directive>
+  </ul>
+  <ul>
+    <full-size-directive url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></full-size-directive>
+  </ul>
+  <label> TABLE VIEW:
+    <input type="radio" name="mode" value="table" ng-model="mode" ng-click="hidden = !hidden"/>
+  </label>
+  <label> GRID VIEW:
+    <input type="radio" name="mode" value="grid" ng-model="mode" ng-click="hidden = !hidden"/>
+  </label>
+</div>
