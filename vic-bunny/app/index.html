@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bunny App</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body data-ng-app="BunnyApp">
+  <main ng-cloak ng-controller="BunnyController as hopper">
+    <no-bunny link="{{hopper.link}}" title="{{hopper.title}}" description="{{hopper.description}}"></no-bunny>
+    <thumb-bunny link="{{hopper.link}}" height="hopper.height" width="hopper.width" alt="{{hopper.title}}"></thumb-bunny>
+    <vic-bunny title="{{hopper.title}}" link="{{hopper.link}}" height="{{hopper.height}}" width="{{hopper.width}}" description="{{hopper.description}}"></vic-bunny>
+  </main>
+  <script src="bundle.js"></script>
+</body>
+</html>
