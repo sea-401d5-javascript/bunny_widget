@@ -4,7 +4,9 @@ module.exports = function(app) {
       restrict: 'E',
       templateUrl: './templates/BunnyApp/album.html',
       scope: {
-        images: '@'
+        images: '@',
+        title: '@',
+        description: '@'
       }
     };
   });
