@@ -1,4 +1,4 @@
-const angular = require('angular');
-
-var BunnyApp = angular.module('BunnyApp', []);
-require('./bunny');
+module.exports = function(app) {
+  require('./controllers')(app);
+  require('./directives')(app);
+};
