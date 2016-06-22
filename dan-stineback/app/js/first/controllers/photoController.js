@@ -3,7 +3,8 @@ module.exports = function(app) {
   app.controller('PhotosController', PhotosController);
 
   function PhotosController() {
-
+    this.height = '400',
+    this.width = '400',
     this.dragonPhotos = {
       title:'Dragon photos',
       description:'Pictures of Daragons',

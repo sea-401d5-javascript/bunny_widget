@@ -4,7 +4,7 @@
     <li ng-repeat="photo in photos">
       <thumbnail-display url="photo.url"></thumbnail-display>
       <div ng-if="mode === 'text'">
-        <image-dispaly title="photo.title"></image-display>
+        <image-dispaly title="photo.title" description="photo.description"></image-display>
       </div>
     </li>
   </ul>
@@ -13,7 +13,7 @@
 <div ng-if="mode === 'normal'">
   <ul>
     <li ng-repeat="photo in photos">
-      <image-display url="photo.url"></image-display>
+      <image-display url="photo.url" width="400" height="400"></image-display>
       <div ng-if="mode === 'text'">
       <photo-album title="photo.title"></photo-album>
       </div>
@@ -21,7 +21,7 @@
   </ul>
 </div>
 <div class="">
-  <label for="">Normal size<input type="radio" name="mode" value="normal" ng-model="mode" ng-change="changeView"/></label>
-  <label for="">Thumbnail<input type="radio" name="mode" value="tiny" ng-model="mode" ng-chang="changeView"></label>
+  <label for="">Normal size<input type="radio" name="mode" value="normal" ng-model="mode" ng-change="changeView()"/></label>
+  <label for="">Thumbnail<input type="radio" name="mode" value="tiny" ng-model="mode" ng-chang="changeView()"></label>
   <lable>Hide Pictures<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"/></lable>
 </div>

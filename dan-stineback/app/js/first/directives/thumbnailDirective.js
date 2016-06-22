@@ -7,7 +7,9 @@ module.exports = function(app){
       scope: {
         url: '=',
         height: '=',
-        width: '='
+        width: '=',
+        title: '=',
+        description: '='
       }
     };
   });
