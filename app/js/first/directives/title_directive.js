@@ -4,9 +4,9 @@ module.exports = function(app) {
       restrict: 'E',
       templateUrl: './templates/first/title_image_template.html',
       scope: {
-        title: '@',
-        url: '@',
-        description: '@'
+        title: '=',
+        url: '=',
+        description: '='
       }
     };
   });

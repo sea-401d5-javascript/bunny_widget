@@ -5,7 +5,9 @@ module.exports = function(app) {
       templateUrl: './templates/first/full_image_template.html',
       replace: true,
       scope: {
-        url: '='
+        url: '=',
+        title: '=',
+        description: '='
       }
     };
   });
