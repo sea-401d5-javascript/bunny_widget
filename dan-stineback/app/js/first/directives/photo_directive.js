@@ -9,9 +9,9 @@ module.exports = function(app){
         url: '=',
         title: '=',
         description: '='
+
       },
       controller: function($scope) {
-        $scope.photos = [];
         $scope.changeView = function() {
           console.log($scope.mode);
         };

@@ -7,7 +7,7 @@ module.exports = function(app) {
     this.dragonPhotos = {
       title:'Dragon photos',
       description:'Pictures of Daragons',
-      album:[
+      photos:[
         {
           url: 'http://vignette2.wikia.nocookie.net/dragonhandbook/images/e/e5/Chaos_breathing_fire.jpeg/revision/latest?cb=20130815032055',
           title: 'Dragon one'
@@ -26,7 +26,7 @@ module.exports = function(app) {
     this.cowPhotos  = {
       title:'Cow Photos',
       description:'Pictures of Cows',
-      album:[
+      photos:[
         {
           url: 'http://resources3.news.com.au/images/2012/03/27/1226311/607271-cow.jpg',
           title: 'Cow one'
@@ -45,7 +45,7 @@ module.exports = function(app) {
     this.pupPhotos  = {
       title:'Pup Photos',
       description:'Pictures of puppies',
-      album:[
+      photos:[
         {
           url: 'http://theilovedogssite.com/wp-content/uploads/2015/01/4577137586_5f4cf7fbd3_z.jpg',
           title: 'Pup one'

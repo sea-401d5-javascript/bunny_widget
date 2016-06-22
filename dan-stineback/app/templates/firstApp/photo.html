@@ -1,21 +1,21 @@
 
-<div ng-if="mode === 'single'" ng-click="showPhoto(photo)">
+<div >
   <ul>
     <li ng-repeat="photo in photos">
       <thumbnail-display url="photo.url"></thumbnail-display>
-      <div ng-if="mode === 'text'">
+      <!-- <div ng-if="mode === 'text'">
         <image-dispaly title="photo.title"></image-display>
-      </div>
+      </div> -->
     </li>
   </ul>
 </div>
-<div ng-if="mode === 'list'" ng-click="showPhoto()">
+<div >
   <ul>
     <li ng-repeat="photo in photos">
       <image-display url="photo.url"></image-display>
-      <div ng-if="mode === 'text'">
-        <photo-directive title="photo.title"></photo-directive>
-      </div>
+      <!-- <div ng-if="mode === 'text'">
+      <photo-album title="photo.title"></photo-album>
+      </div> -->
     </li>
   </ul>
 </div>
