@@ -10,8 +10,8 @@
 
 <body data-ng-app="bunnyWidget">
 
-    <main ng-cloak ng-controller="bunny_controller as iCtrl">
-
+    <main ng-cloak ng-controller="BunnyController as iCtrl">
+      <!-- {{iCtrl.url}} -->
       <description-directive url="{{iCtrl.url}}" title="{{iCtrl.title}}" description="{{iCtrl.description}}"></description-directive>
 
       <full-directive url="{{iCtrl.url}}" title="{{iCtrl.title}}" description="{{iCtrl.description}}"></full-directive>

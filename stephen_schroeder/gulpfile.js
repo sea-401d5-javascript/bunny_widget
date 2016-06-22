@@ -6,8 +6,9 @@ const webpack = require('webpack-stream');
 
 const paths = {
   js: __dirname + '/app/**/*.js',
-  html: __dirname + '/app/index.html',
-  css: __dirname + '/app/style.css'
+  html: __dirname + '/app/*.html',
+  css: __dirname + '/app/css/*.css',
+  templates: __dirname + '/app/templates/**/*.html'
 };
 
 gulp.task('clean', ()=>{
@@ -32,6 +33,6 @@ gulp.task('bundle', ()=>{
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('build', ['clean', 'copy', 'bundle']);
+gulp.task('build', ['copy', 'bundle']);
 
 gulp.task('default', ['build']);

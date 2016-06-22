@@ -49,9 +49,9 @@
 	__webpack_require__(6);
 	__webpack_require__(5);
 	__webpack_require__(8);
+	__webpack_require__(9);
 	__webpack_require__(10);
-	__webpack_require__(7);
-	module.exports = __webpack_require__(9);
+	module.exports = __webpack_require__(7);
 
 
 /***/ },
@@ -60,7 +60,7 @@
 
 	const angular = __webpack_require__(2);
 
-	var bunnyWidget = angular.module('bunnyWidget', []);
+	const bunnyWidget = angular.module('bunnyWidget', []);
 	__webpack_require__(4)(bunnyWidget);
 
 
@@ -31576,12 +31576,12 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.controller('bunny_controller', ['$scope', function() {
+	  app.controller('BunnyController', ['$scope', function() {
 	    this.url = 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg';
 	    this.height = 400;
-	    this.width = 400;
-	    this.title = 'Big Fuzzy Bunny';
-	    this.description = 'A big fuzzy delicious looking bunny';
+	    this.width = 600;
+	    this.title = 'Bunny';
+	    this.description = 'A very cute bunny that looks absolutely delicious!';
 	  }]);
 	};
 
@@ -31589,8 +31589,6 @@
 /***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
 
 	module.exports = function(app) {
 	  __webpack_require__(8)(app);
@@ -31603,20 +31601,17 @@
 /* 8 */
 /***/ function(module, exports) {
 
-	'use strict';
-
 	module.exports = function(app) {
-	  app.directive('description_directive', function() {
+	  app.directive('descriptionDirective', function() {
 	    return {
+	      restrict: 'E',
 	      templateUrl: './templates/bunny_widget/description.html',
-	      restrict: 'AEC',
 	      scope: {
 	        title: '@',
-	        description: '@',
-	        url: '@'
+	        url: '@',
+	        description: '@'
 	      }
 	    };
-
 	  });
 	};
 
@@ -31625,18 +31620,14 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	module.exports = function(app){
-	  app.directive('thumb_directive', function(){
-	    return{
+	module.exports = function(app) {
+	  app.directive('fullDirective', function() {
+	    return {
 	      restrict: 'E',
-	      template: './templates/bunny_widget/thumb.html',
+	      templateUrl: './templates/bunny_widget/full.html',
 	      scope: {
+	        title: '@',
 	        url: '@',
-	        height: '@',
-	        width: '@',
-	        alt: '@title',
 	        description: '@'
 	      }
 	    };
@@ -31648,18 +31639,13 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	module.exports = function(app){
-	  app.directive('full_directive', function(){
-	    return{
+	module.exports = function(app) {
+	  app.directive('thumbDirective', function() {
+	    return {
 	      restrict: 'E',
-	      template: './templates/bunny_widget/full.html',
+	      templateUrl: './templates/bunny_widget/thumb.html',
 	      scope: {
 	        url: '@',
-	        height: '@',
-	        width: '@',
-	        alt: '@title',
 	        description: '@'
 	      }
 	    };

@@ -1,16 +1,13 @@
-'use strict';
-
 module.exports = function(app) {
-  app.directive('description_directive', function() {
+  app.directive('descriptionDirective', function() {
     return {
+      restrict: 'E',
       templateUrl: './templates/bunny_widget/description.html',
-      restrict: 'AEC',
       scope: {
         title: '@',
-        description: '@',
-        url: '@'
+        url: '@',
+        description: '@'
       }
     };
-
   });
 };
