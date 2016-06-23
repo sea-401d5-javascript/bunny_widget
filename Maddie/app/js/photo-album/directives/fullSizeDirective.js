@@ -4,11 +4,8 @@ module.exports= function(app) {
       restrict: 'E',
       templateUrl: './templates/fullSize.html',
       scope: {
-        url: '@',
-        height: '@',
-        width: '@',
-        title: '@',
-        description: '@'
+        url: '=',
+        alt:'='
       }
     };
   });

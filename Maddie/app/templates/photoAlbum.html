@@ -1,0 +1,17 @@
+<div>
+  <ul ng-if="mode === 'grid'">
+    <small-image-directive url="photo.url" alt="photo.alt" ng-repeat="photo in photos" ng-click="fullSize(photo)"></small-image-directive>
+  </ul>
+  <ul ng-if="mode === 'table'">
+    <text-only-directive title="{{title}}" description="{{description}}"></text-only-directive>
+  </ul>
+  <ul ng-if="mode === 'single'">
+    <full-size-directive url="currentPhoto.url" alt="currentPhoto.alt" ng-click="fullSize()"></full-size-directive>
+  </ul>
+  <label> TABLE VIEW (click to see text):
+    <input type="radio" name="mode" value="table" ng-model="mode" ng-click="changeView()"/>
+  </label>
+  <label> GRID VIEW (click to see thumbnails):
+    <input type="radio" name="mode" value="grid" ng-model="mode" ng-click="changeView()"/>
+  </label>
+</div>

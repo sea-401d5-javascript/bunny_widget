@@ -4,10 +4,9 @@ module.exports = function(app) {
       restrict: 'E',
       templateUrl: './templates/smallImage.html',
       scope: {
-        url: '@',
-        title: '@',
-        width: '@',
-        height: '@'
+        url: '=',
+        alt:'='
+
       }
     };
   });
