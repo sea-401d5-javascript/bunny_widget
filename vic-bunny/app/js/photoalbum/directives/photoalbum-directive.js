@@ -5,9 +5,16 @@ module.exports = function(app) {
       './templates/photoalbum/photoalbum-directive.html',
       restrict: 'E',
       scope: {
-        title: '=',
-        link: '=',
-        description: '='
+        title: '@',
+        description: '@',
+        photos: '='
+      },
+
+      controller:function($scope) {
+        $scope.changeView = function() {
+          console.log($scope.mode);
+        };
+        
       }
     };
   });
