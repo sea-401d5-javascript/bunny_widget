@@ -13,7 +13,7 @@ module.exports = function(app) {
           console.log($scope.mode);
         };
         $scope.fullSize = function(photo) {
-          $scope.mode != 'table';
+          //$scope.mode != 'table';
           if(!photo) {
             $scope.mode = 'grid';
             return;
