@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Album</title>
+  <!-- <link rel="stylesheet" href="app.css"> -->
+</head>
+<body data-ng-app="PhotoAlbum">
+  <main ng-cloak ng-controller="BunnyController as hopper">
+    <text-only link="{{hopper.link}}" title="{{hopper.title}}" description="{{hopper.description}}"></text-only>
+    <thumb-size link="{{hopper.link}}" height="hopper.height" width="hopper.width" alt="{{hopper.title}}"></thumb-size>
+    <full-size title="{{hopper.title}}" link="{{hopper.link}}" height="{{hopper.height}}" width="{{hopper.width}}" description="{{hopper.description}}"></full-size>
+  </main>
+  <script src="bundle.js"></script>
+</body>
+</html>
