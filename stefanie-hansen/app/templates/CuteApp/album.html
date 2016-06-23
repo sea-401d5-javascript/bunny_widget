@@ -1,8 +1,15 @@
 <div>
-  <table ng-hide="mode === 'grid'">
-    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in sloths.images"> "></description-directive>
-  </table>
-  <table ng-hide="mode === 'table'">
-  </table>
-  <button photo-album-directive>Change View</button>
+  <div ng-hide="mode === 'thumbnails'">
+    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in sloth.images"> "></description-directive>
+    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in kitten.images"> "></description-directive>
+    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in redPanda.images"> "></description-directive>
+  </div>
+  <div ng-hide="mode === 'descriptions'">
+    <thumbnail-directive url="thumbnailDirective.url" ng-repeat="image in sloth.images"> "></thumbnail-directive>
+    <thumbnail-directive  url="thumbnailDirective.url" ng-repeat="image in kitten.images"> "></thumbnail-directive>
+    <thumbnail-directive  url="thumbnailDirective.url" ng-repeat="image in redPanda.images"> "></thumbnail-directive>
+  </div>
+
+  <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
+  <label>Thumbnails<input type="radio" name="mode" value="thumbnails" ng-model="mode" ng-change="changeView()"/></label>
 </div>
