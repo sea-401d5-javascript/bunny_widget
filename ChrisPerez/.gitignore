@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/node,osx,windows,vim
 
 build/**
+*/**_bundle.js
 
 ### Node ###
 # Logs

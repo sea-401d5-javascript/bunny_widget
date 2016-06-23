@@ -13,15 +13,21 @@ gulp.task('webpack:dev', function() {
     .pipe(gulp.dest('build/'));
 });
 
-// gulp.task('webpack:test', function() {
-//   return gulp.src('./test/client/entry.js')
-//     .pipe(webpack({
-//       output: {
-//         filename: 'test_bundle.js'
-//       }
-//     }))
-//     .pipe(gulp.dest('test/client'));
-// });
+gulp.task('bundle:test', () => {
+  return gulp.src(__dirname + '/test/*_test.js')
+    .pipe(webpack({
+      output: {
+        filename: 'test_bundle.js'
+      },
+      module: {
+        loaders: [{
+          test:/\.html$/,
+          loader: 'html'
+        }]
+      }
+    }))
+    .pipe(gulp.dest(__dirname + '/test'));
+});
 
 gulp.task('staticfiles:dev', function() {
   return gulp.src('./app/**/*.html')
