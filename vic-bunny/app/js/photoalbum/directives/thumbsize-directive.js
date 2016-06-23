@@ -1,14 +1,14 @@
 module.exports = function(app) {
-  app.directive('vicBunny', function() {
+  app.directive('thumbSize', function() {
     return {
       templateUrl:
-      './templates/bunny/vicbunny-directive.html',
+      './templates/photoalbum/thumbsize-directive.html',
       restrict: 'E',
       scope: {
         title: '@',
         link: '@',
-        height: '@',
-        width: '@',
+        height: '@100',
+        width: '@100',
         description: '@'
       }
     };

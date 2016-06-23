@@ -1,4 +1,6 @@
-const angular =  require('angular');
-const app = angular.module('BunnyApp', []);
+'use strict';
 
-require('./bunny')(app);
+const angular =  require('angular');
+const app = angular.module('PhotoAlbum', []);
+
+require('./photoalbum')(app);
