@@ -5,11 +5,8 @@ module.exports = function(app) {
       './templates/photoalbum/thumbsize-directive.html',
       restrict: 'E',
       scope: {
-        title: '@',
-        link: '@',
-        height: '@100',
-        width: '@100',
-        description: '@'
+        url: '=',
+        alt: '='
       }
     };
   });

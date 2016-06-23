@@ -5,11 +5,8 @@ module.exports = function(app) {
       './templates/photoalbum/fullsize-directive.html',
       restrict: 'E',
       scope: {
-        title: '@',
-        link: '@',
-        height: '@',
-        width: '@',
-        description: '@'
+        url: '=',
+        alt: '='
       }
     };
   });
