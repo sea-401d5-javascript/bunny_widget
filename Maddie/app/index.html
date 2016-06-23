@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bunny App</title>
+  </head>
+  <body ng-app="BunnyApp">
+    <main ng-cloak ng-controller="ImageController as image">
+      <h1> Text Only Display </h1>
+       <text-only-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></text-only-directive>
+       <h1> Thumbnail </h1>
+      <small-image-directive url="{{image.url}}" alt="{{image.title}}"></small-image-directive>
+      <h1> Full Size Display </h1>
+      <full-size-directive url="{{image.url}}" height="{{image.height}}" width="{{image.width}}" alt="{{image.title}}"></full-size-directive>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
