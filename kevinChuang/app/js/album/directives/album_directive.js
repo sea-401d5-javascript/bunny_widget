@@ -21,7 +21,7 @@ module.exports = function(app) {
         };
         scope.closeImage = function() {
           controller.currentImg = '';
-          controller.mode = 'thumbnail';
+          controller.mode = '';
         };
 
         scope.$watch(function() {

@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const webpack = require('webpack-stream');
 
 gulp.task('copy', ()=> {
-  gulp.src('./app/**/*.html')
+  gulp.src(['./app/**/*.html','./app/**/*.css'])
   .pipe(gulp.dest('build/'));
 });
 
