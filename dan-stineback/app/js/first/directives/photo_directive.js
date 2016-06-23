@@ -8,22 +8,29 @@ module.exports = function(app){
         photos: '=',
         url: '=',
         title: '=',
-        description: '='
+        description: '=',
+        photo: '='
 
 
       },
       controller: function($scope) {
+        $scope.photoText = false;
+        $scope.photoTextAgain = true;
+
         $scope.changeView = function() {
           console.log($scope.mode);
         };
-        $scope.currentPhoto = $scope.photos;
-        $scope.showPhoto = function(photo) {
-          if (!photo) {
-            $scope.mode = 'list';
-            return;
-          }
+        // $scope.currentPhoto = $scope.photos;
+        $scope.toggle = function(photo) {
+          console.log(photo);
+
           $scope.currentPhoto = photo;
-          $scope.mode = 'single';
+          let photoArray = [];
+          photoArray.push(photo);
+          console.log(photoArray);
+
+          $scope.photoText = !$scope.photoText;
+          $scope.photoTextAgain = !$scope.photoTextAgain;
         };
 
       }
