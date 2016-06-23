@@ -6,11 +6,21 @@ module.exports = function(app) {
         photos: '=',
         title: '@',
         description: '@'
-      }
+      },
       controller: function($scope) {
-        $scope.fullSize = function() {
-          if()
-        }
+        $scope.mode = 'table';
+        $scope.changeView = function() {
+          console.log($scope.mode);
+        };
+        $scope.fullSize = function(photo) {
+          $scope.mode != 'table';
+          if(!photo) {
+            $scope.mode = 'grid';
+            return;
+          }
+          $scope.currentPhoto = photo;
+          $scope.mode= 'single';
+        };
       }
     };
   });

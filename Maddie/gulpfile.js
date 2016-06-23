@@ -5,7 +5,8 @@ const del = require('del');
 
 const paths = {
   html: __dirname + '/app/**/*.html',
-  js: __dirname + '/app/js/client.js'
+  js: __dirname + '/app/js/client.js',
+  css:__dirname + '/app/css/style.css'
 };
 
 gulp.task('clean', () => {
@@ -14,6 +15,11 @@ gulp.task('clean', () => {
 
 gulp.task('copy', ['clean'], () => {
   return gulp.src(paths.html)
+  .pipe(gulp.dest('build/'));
+});
+
+gulp.task('css', ['clean'], () => {
+  return gulp.src(paths.css)
   .pipe(gulp.dest('build/'));
 });
 
@@ -27,4 +33,4 @@ gulp.task('bundle', ['clean'], () => {
   .pipe(gulp.dest('build/'));
 });
 
-gulp.task('build', ['bundle', 'clean', 'copy']);
+gulp.task('build', ['bundle', 'clean', 'copy', 'css']);
