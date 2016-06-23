@@ -5,7 +5,11 @@ module.exports = function(app) {
       scope: {
         animal: '=',
         image: '='
-      }
+      },
+      link: function(scope, elem, attr, controller) {
+        scope.enlargeImage = controller.enlargeImage;
+      },
+      require: '^photoAlbumDirective'
     };
   });
 };

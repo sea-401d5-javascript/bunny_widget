@@ -4,7 +4,7 @@ module.exports = function(app) {
       templateUrl: './templates/CuteApp/full.html',
       scope: {
         animal: '=',
-        image: '='
+        image: '=',
       }
     };
   });
