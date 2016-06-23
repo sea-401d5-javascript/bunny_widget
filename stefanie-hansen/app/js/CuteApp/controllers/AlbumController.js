@@ -3,7 +3,6 @@ module.exports = function(app) {
 
     // have a directive for each one.
     // show each album of thumbnails, click on thumbnail, show it full size and hide all the other thumbnails in THAT album. show/hide list of descriptions with radio buttons?
-    this.animals = [this.sloths, this.redPandas, this.kittens];
     this.sloths = {};
     this.sloths.title = 'Sloths';
     this.sloths.description = 'The slowest and the cutest';
@@ -18,5 +17,7 @@ module.exports = function(app) {
     this.kittens.title = 'Kittens';
     this.kittens .description = 'Nothing needs to be said.';
     this.kittens.images = ['http://i.imgur.com/ozEaj1Z.png', 'http://i.imgur.com/LBfAioO.jpg', 'http://i.imgur.com/a4ZxA5u.jpg', 'http://i.imgur.com/MLsKJLZ.jpg', 'http://i.imgur.com/EqxkgdR.jpg', 'http://i.imgur.com/KBHvE1c.jpg', 'http://i.imgur.com/si8LnGy.jpg'];
+
+    this.animals = [this.sloths, this.redPandas, this.kittens];
   }]);
 };

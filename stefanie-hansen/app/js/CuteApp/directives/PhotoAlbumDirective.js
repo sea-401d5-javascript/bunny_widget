@@ -3,9 +3,7 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/album.html',
       scope: {
-        redPanda: '=',
-        sloth: '=',
-        kitten: '='
+        animal: '='
       },
       controller: function($scope) {
         $scope.changeView = function() {

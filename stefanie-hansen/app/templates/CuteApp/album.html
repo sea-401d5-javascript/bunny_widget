@@ -1,13 +1,9 @@
 <div>
   <div ng-hide="mode === 'thumbnails'">
-    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in sloth.images"> "></description-directive>
-    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in kitten.images"> "></description-directive>
-    <description-directive title="descriptionDirective.title" description="descriptionDirective.description" url="descriptionDirective.url" ng-repeat="image in redPanda.images"> "></description-directive>
+    <description-directive animal="animal"> "></description-directive>
   </div>
   <div ng-hide="mode === 'descriptions'">
-    <thumbnail-directive url="thumbnailDirective.url" ng-repeat="image in sloth.images"> "></thumbnail-directive>
-    <thumbnail-directive  url="thumbnailDirective.url" ng-repeat="image in kitten.images"> "></thumbnail-directive>
-    <thumbnail-directive  url="thumbnailDirective.url" ng-repeat="image in redPanda.images"> "></thumbnail-directive>
+    <thumbnail-directive animal="animal" ng-repeat="image in animal.images"> "></thumbnail-directive>
   </div>
 
   <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>

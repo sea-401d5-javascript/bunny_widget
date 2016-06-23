@@ -12,9 +12,9 @@
 
     <main ng-cloak ng-controller="AlbumController as albumctrl">
 
-      <photo-album-directive images="albumctrl.redPanda"></photo-album-directive>
-      <photo-album-directive images="albumctrl.kitten"></photo-album-directive>
-      <photo-album-directive images="albumctrl.sloth"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.animals[0]"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.animals[1]"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.animals[2]"></photo-album-directive>
 
     </main>
     <script src="bundle.js"></script>

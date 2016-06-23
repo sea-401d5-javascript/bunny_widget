@@ -3,9 +3,7 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/description.html',
       scope: {
-        title: '@',
-        url: '@',
-        description: '@'
+        animal: '='
       }
     };
   });
