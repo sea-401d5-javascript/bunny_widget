@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image App</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body data-ng-app="ImageApp">
+    <main ng-controller="AlbumController as album">
+
+
+            <h1>{{album.puppies.title}}</h1>
+            <h3>{{album.puppies.description}}</h1>
+            <album-directive photos="album.puppies.album"></album-directive>
+            <h1>{{album.koalas.title}}</h1>
+            <h3>{{album.koalas.description}}</h1>
+            <album-directive photos="album.koalas.album"></album-directive>
+            <h1>{{album.pandas.title}}</h1>
+            <h3>{{album.pandas.description}}</h1>
+            <album-directive photos="album.pandas.album"></album-directive>
+
+    </main>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
