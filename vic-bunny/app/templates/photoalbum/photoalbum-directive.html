@@ -1,13 +1,13 @@
 <div>
-  <ul ng-if="!thumb">
+  <ul ng-if="mode === 'text'">
     <text-only title="{{title}}" description="{{description}}"></text-only>
   </ul>
-  <ul ng-if="thumb">
+  <ul ng-if="mode === 'thumb'">
     <thumb-size url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></thumb-size>
   </ul>
   <ul>
-    <full-size ng-hide="" url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></full-size>
+    <full-size ng-if="mode === 'full'" url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></full-size>
   </ul>
-  <label>Table View<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()" ng-click="thumb = !thumb"/></label>
-  <label>Grid View<input type="radio" name="mode" value="thumb" ng-model="mode" ng-change="changeView()" ng-click="thumb = !thumb"/></label>
+  <label>Table View<input type="radio" name="mode" value="text" ng-model="mode" ng-click="changeView()"/></label>
+  <label>Grid View<input type="radio" name="mode" value="thumb" ng-model="mode" ng-click="changeView()"/></label>
 </div>

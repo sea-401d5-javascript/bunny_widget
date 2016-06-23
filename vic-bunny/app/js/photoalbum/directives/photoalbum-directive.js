@@ -11,6 +11,7 @@ module.exports = function(app) {
       },
 
       controller:function($scope) {
+        $scope.mode = 'text';
         $scope.changeView = function() {
           console.log($scope.mode);
         };
