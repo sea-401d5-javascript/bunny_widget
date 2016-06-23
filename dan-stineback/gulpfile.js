@@ -26,7 +26,7 @@ gulp.task('copy-html', ['clean'], ()=>{
 // });
 
 gulp.task('bundle', ['clean'], ()=>{
-  return gulp.src(paths.js)
+  return gulp.src('./app/js/clent.js')
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
@@ -36,13 +36,19 @@ gulp.task('bundle', ['clean'], ()=>{
 });
 
 gulp.task('bundle:test', () => {
-  return gulp.src(__dirname + '/test/*_test.js')
+  return gulp.src('./test/**/*_test.js')
     .pipe(webpack({
       output: {
         filename: 'test_bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /\.html$/,
+          loader: 'html'
+        }]
       }
     }))
-    .pipe(gulp.dest(__dirname + '/test'));
+    .pipe(gulp.dest('./test'));
 });
 
 gulp.task('watch', ()=>{
