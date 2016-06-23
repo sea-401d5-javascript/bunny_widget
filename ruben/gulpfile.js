@@ -33,8 +33,8 @@ gulp.task('bundle:test', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch('./app/index.html', ['copy']);
-  gulp.watch('./app/js/client.js', ['bundle']);
+  gulp.watch(paths.html, ['copy']);
+  gulp.watch(paths.js, ['bundle']);
   gulp.watch('./app/css/app.css', ['copy']);
 });
 

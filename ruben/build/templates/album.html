@@ -1,20 +1,20 @@
 <div ng-if="mode === 'single'">
   <ul>
     <li ng-repeat="photo in photos">
-      <tiny-image-directive ng-show="photoTextAgain"   ng-click="toggle(photo)" url="photo.url"></tiny-image-directive>
+      <small-directive ng-show="photoTextAgain"   ng-click="toggle(photo)" url="photo.url"></small-directive>
     </li>
   </ul>
   <div ng-show="photoText">
-    <full-image-directive ng-click="toggle(photo)" url="currentPhoto.url"></full-image-directive>
+    <full-directive ng-click="toggle(photo)" url="currentPhoto.url"></full-directive>
   </div>
 </div>
 
 <div ng-if="mode === 'list'">
   <ul>
     <li ng-repeat="photo in photos">
-      <full-image-directive ng-click="toggle(photo)" url="photo.url"></full-image-directive>
+      <full-directive ng-click="toggle(photo)" url="photo.url"></full-directive>
       <div ng-show="photoText">
-        <first-image-directive title="photo.title"></first-image-directive>
+        <title-directive title="photo.title"></title-directive>
       </div>
     </li>
   </ul>

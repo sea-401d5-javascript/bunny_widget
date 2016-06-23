@@ -6,8 +6,7 @@ module.exports = function(app) {
       scope: {
         photos: '=',
         title: '=',
-        description: '=',
-        photo: '='
+        description: '='
       },
       controller: function($scope) {
         $scope.photoText = false;
