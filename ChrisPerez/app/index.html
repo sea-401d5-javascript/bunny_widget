@@ -11,15 +11,30 @@
 
 <body data-ng-app="FirstApp">
 
-    <main ng-cloak ng-controller="FirstController as bunny">
-
+    <!-- <main ng-cloak ng-controller="FirstController as bunny">
       <first-directive title="{{bunny.title}}" description="{{bunny.description}}" url="{{bunny.url}}"></first-directive>
       <second-directive src="{{bunny.url}}" alt="{{bunny.description}}" width="{{bunny.width}}"></second-directive>
       <third-directive src="{{bunny.url}}" alt="{{bunny.description}}" width="{{bunny.width}}"></third-directive>
+    </main> -->
 
+    <main ng-cloak ng-controller="AlbumController as albumctrl">
+      <div>
+        <h1>{{albumctrl.goatPics.title}}</h1>
+        <h2>{{albumctrl.goatPics.description}}</h2>
+        <album-directive album="albumctrl.goatPics.album"></album-directive>
+      </div>
 
+      <div>
+        <h1>{{albumctrl.bearPics.title}}</h1>
+        <h2>{{albumctrl.bearPics.description}}</h2>
+        <album-directive album="albumctrl.bearPics.album"></album-directive>
+      </div>
 
-
+      <div>
+        <h1>{{albumctrl.monkeyPics.title}}</h1>
+        <h2>{{albumctrl.goatPics.description}}</h2>
+        <album-directive album="albumctrl.monkeyPics.album"></album-directive>
+      </div>
     </main>
     <script src="bundle.js"></script>
 </body>

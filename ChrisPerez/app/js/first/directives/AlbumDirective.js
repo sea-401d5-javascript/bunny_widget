@@ -1,27 +1,18 @@
 module.exports = function(app) {
-  app.directive('AlbumDirective', function() {
+  app.directive('albumDirective', function() {
     return {
-      templateUrl: './templates/FirstApp/album.html',
-      scope: {},
+      templateUrl: './templates/FirstApp/AlbumTemplate.html',
+      scope: {
+        title: '=',
+        description: '=',
+        album: '='
+      },
       controller: function($scope){
-        //console.log($scope);
-        $scope.album = [];
-        $scope.changeView = function(){
+        //$scope.album = [];
+        $scope.changeView = function($scope){
           console.log($scope.mode);
         };
 
-        $scope.showArticle = function(note){
-          if (!note) {
-            $scope.mode = 'list';
-            return;
-          }
-          $scope.currentNote = note;
-          $scope.mode = 'single';
-        };
-
-        $scope.addNote = function(title, body){
-          $scope.notes.push({title, body});
-        };
       }
     };
   });
