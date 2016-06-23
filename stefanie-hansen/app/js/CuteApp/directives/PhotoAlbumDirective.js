@@ -9,7 +9,7 @@ module.exports = function(app) {
         $scope.changeView = function() {
           $scope.mode === 'thumbnails' ? $scope.mode === 'descriptions' : $scope.mode === 'thumbnails';
         };
-        $scope.enlargeImage = function() {
+        $scope.enlargeImage = function(image) {
           console.log('clicked');
           $scope.mode === 'active' ? $scope.mode === 'inactive' : $scope.mode === 'active';
         };

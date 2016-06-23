@@ -5,6 +5,7 @@ module.exports = function(app) {
       scope: {
         animal: '=',
         image: '=',
+        currentImage: '='
       }
     };
   });

@@ -1,4 +1,4 @@
-
+<div ng-hide="currentImage">
   <description-directive animal="animal" ng-hide="mode === 'thumbnails'"></description-directive>
 
   <thumbnail-directive animal="animal" image="image" ng-click="enlargeImage(image)" ng-hide="mode === 'descriptions'" ng-repeat="image in animal.images"></thumbnail-directive>
@@ -7,5 +7,6 @@
 
   <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
   <label>Thumbnails<input type="radio" name="mode" value="thumbnails" ng-model="mode" ng-change="changeView()"/></label>
+</div>
 
-  <full-directive ng-repeat="image in animal.images" animal="animal" image="image" current-image="currentImage"></full-directive>
+<full-directive ng-repeat="image in animal.images" animal="animal" image="image" current-image="currentImage"></full-directive>
