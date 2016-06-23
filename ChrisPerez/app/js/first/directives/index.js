@@ -4,4 +4,5 @@ module.exports = function(app) {
   // require('./ThirdDirective')(app);
   require('./albumDirective')(app);
   require('./fullDirective')(app);
+  require('./textDirective')(app);
 };

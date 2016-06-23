@@ -6,8 +6,19 @@ module.exports = function(app) {
       scope: {
         label: '=',
         description: '=',
-        url: '='
-      }
+        url: '=',
+        width: '='
+      },
+      controller: function($scope){
+        console.log($scope);
+      },
+      link: function($scope, elem, attr, controller){
+        $scope.logController = function(){
+          console.log(controller);
+        };
+        $scope.zoom = controller.zoom;
+      },
+      require: '^albumDirective'
     };
   });
 };

@@ -7,12 +7,11 @@ module.exports = function(app) {
         description: '=',
         album: '='
       },
-      controller: function($scope){
+      controller: function(){
         //$scope.album = [];
-        $scope.changeView = function($scope){
-          console.log($scope.mode);
+        this.zoom = function(width){
+          width = width * 400;
         };
-
       }
     };
   });
