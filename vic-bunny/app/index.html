@@ -8,10 +8,10 @@
   <!-- <link rel="stylesheet" href="app.css"> -->
 </head>
 <body data-ng-app="PhotoAlbum">
-  <main ng-cloak ng-controller="BunnyController as hopper">
-    <text-only link="{{hopper.link}}" title="{{hopper.title}}" description="{{hopper.description}}"></text-only>
-    <thumb-size link="{{hopper.link}}" height="hopper.height" width="hopper.width" alt="{{hopper.title}}"></thumb-size>
-    <full-size title="{{hopper.title}}" link="{{hopper.link}}" height="{{hopper.height}}" width="{{hopper.width}}" description="{{hopper.description}}"></full-size>
+  <main ng-cloak ng-controller="PhotoAlbumController as albumctrl">
+    <photo-album photos="albumctrl.weimeraners.photos" title="{{albumctrl.weimeraners.title}}" description="{{albumctrl.weimeraners.description}}"></photo-album>
+    <photo-album photos="albumctrl.piglets.photos" title="{{albumctrl.piglets.title}}" description="{{albumctrl.piglets.description}}"></photo-album>
+    <photo-album photos="albumctrl.hedgehogs.photos" title="{{albumctrl.hedgehogs.title}}" description="{{albumctrl.hedgehogs.description}}"></photo-album>
   </main>
   <script src="bundle.js"></script>
 </body>
