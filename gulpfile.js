@@ -45,6 +45,12 @@ gulp.task('bundle', () => {
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /\.html$/,
+          loader: 'html'
+        }]
       }
     }))
     .pipe(gulp.dest(paths.build.main));
