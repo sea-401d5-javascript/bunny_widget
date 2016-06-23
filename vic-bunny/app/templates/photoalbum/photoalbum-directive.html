@@ -1,5 +1,13 @@
 <div>
-  <h1>{{title}}</h1>
-  <a href="{{link}}">Photo Album</a>
-  <h3>{{description}}</h3>
+  <ul ng-hide="mode === 'thumb'">
+    <text-only title="{{title}}" description="{{description}}"></text-only>
+  </ul>
+  <ul ng-hide="mode === 'text'">
+    <thumb-size url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></thumb-size>
+  </ul>
+  <ul>
+    <full-size url="photo.url" alt="photo.alt" ng-repeat="photo in photos"></full-size>
+  </ul>
+  <label>Table View<input type="radio" name="mode" value="text" ng-model="mode" ng-change="showThumb(photo)"/></label>
+  <label>Grid View<input type="radio" name="mode" value="thumb" ng-model="mode" ng-change="showThumb()"/></label>
 </div>
