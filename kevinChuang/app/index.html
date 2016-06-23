@@ -5,10 +5,13 @@
     <title>Bunnies!</title>
   </head>
   <body data-ng-app="BunnyApp">
-    <main ng-cloak ng-controller="bunnyController as bunnyctrl">
-      <no-bunny-image image="{{bunnyctrl.image}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></no-bunny-image>
-      <small-bunny-image image="{{bunnyctrl.image}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></small-bunny-image>
-      <full-bunny-image image="{{bunnyctrl.image}}" width="{{bunnyctrl.width}}" height="{{bunnyctrl.height}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></full-bunny-image>
+    <main ng-cloak ng-controller="AlbumController as albumctrl">
+      <!-- <no-bunny-image image="{{bunnyctrl.image}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></no-bunny-image> -->
+      <!-- <small-bunny-image image="{{bunnyctrl.image}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></small-bunny-image> -->
+      <!-- <full-bunny-image image="{{bunnyctrl.image}}" width="{{bunnyctrl.width}}" height="{{bunnyctrl.height}}" title="{{bunnyctrl.title}}" description="{{bunnyctrl.description}}"></full-bunny-image> -->
+      <album size="thumbnail" imgalbum="albumctrl.cats"></album>
+      <album size="thumbnail" imgalbum="albumctrl.turtles"></album>
+      <album size="thumbnail" imgalbum="albumctrl.manBirds"></album>
     </main>
     <script src="bundle.js"></script>
   </body>
