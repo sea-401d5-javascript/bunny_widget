@@ -3,7 +3,8 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/full.html',
       scope: {
-        animal: '='
+        animal: '=',
+        image: '='
       }
     };
   });

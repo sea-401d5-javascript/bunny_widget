@@ -5,7 +5,7 @@
   </div>
 
   <ul ng-hide="mode === 'descriptions'">
-    <thumbnail-directive animal = "animal" ng-repeat="image in animal.images"> "></thumbnail-directive>
+    <thumbnail-directive animal = "animal" ng-repeat="image in animal.images" image="image"> "></thumbnail-directive>
   </ul>
 
   <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
