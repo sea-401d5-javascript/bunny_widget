@@ -7,5 +7,4 @@
   <label>List <input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"></label>
   <label>Thumbnail <input type="radio" name="mode" value="thumbnail" ng-model="mode" ng-change="changeView()"></label>
 </div>
-<button type="button" ng-show="img==currentImg" ng-click="currentImg=false">X</button>
-<full ng-show="currentImg" ng-repeat="img in imgalbum.imgs" img="img"></full>
+<full ng-show="currentImg" ng-repeat="img in imgalbum.imgs" img="img" current-img="currentImg" ng-click="closeImage()"></full>

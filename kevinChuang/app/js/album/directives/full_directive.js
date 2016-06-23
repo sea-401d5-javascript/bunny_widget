@@ -4,7 +4,7 @@ module.exports = function(app) {
       templateUrl: './template/album/full.html',
       scope: {
         img: '=',
-        currentImg: '='
+        currentImg: '=',
       }
     };
   });
