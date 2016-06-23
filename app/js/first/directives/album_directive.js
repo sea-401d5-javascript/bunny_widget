@@ -12,6 +12,7 @@ module.exports = function(app) {
       controller: function($scope) {
         $scope.photoText = false;
         $scope.photoTextAgain = true;
+        $scope.test = false;
         $scope.changeView = function() {
           console.log($scope.mode);
         };

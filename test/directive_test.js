@@ -8,6 +8,7 @@ const dummyTemplate = require('../app/templates/first/dummy.html');
 const fullImageTemplate = require('../app/templates/first/full_image_template.html');
 const tinyImageTemplate = require('../app/templates/first/tiny_image_template.html');
 const titleImageTemplate = require('../app/templates/first/title_image_template.html');
+const albumsTemplate = require('../app/templates/first/albums.html');
 
 describe('directive tests', () => {
   let $httpBackend;
@@ -123,6 +124,36 @@ describe('directive tests', () => {
       .respond(200, titleImageTemplate);
     $scope.test = 'test description';
     let link = $compile('<first-image-directive description="test"></first-image-directive>');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let h3 = directive.find('h3');
+    let text = h3.text();
+
+    expect(text).toBe('test description');
+  });
+
+  it('album directive title property should work', () => {
+    $httpBackend.expectGET('./templates/first/albums.html')
+      .respond(200, albumsTemplate);
+    $scope.test = 'test title';
+    let link = $compile('<photo-album title="test"></photo-album>');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let h3 = directive.find('h3');
+    let text = h3.text();
+
+    expect(text).toBe('test title');
+  });
+
+  it('album directive description property should work', () => {
+    $httpBackend.expectGET('./templates/first/albums.html')
+      .respond(200, albumsTemplate);
+    $scope.test = 'test description';
+    let link = $compile('<photo-album description="test"></photo-album>');
     let directive = link($scope);
     $scope.$digest();
     $httpBackend.flush();

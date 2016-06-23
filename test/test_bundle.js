@@ -54,6 +54,7 @@
 	const fullImageTemplate = __webpack_require__(16);
 	const tinyImageTemplate = __webpack_require__(17);
 	const titleImageTemplate = __webpack_require__(18);
+	const albumsTemplate = __webpack_require__(19);
 
 	describe('directive tests', () => {
 	  let $httpBackend;
@@ -169,6 +170,36 @@
 	      .respond(200, titleImageTemplate);
 	    $scope.test = 'test description';
 	    let link = $compile('<first-image-directive description="test"></first-image-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h3 = directive.find('h3');
+	    let text = h3.text();
+
+	    expect(text).toBe('test description');
+	  });
+
+	  it('album directive title property should work', () => {
+	    $httpBackend.expectGET('./templates/first/albums.html')
+	      .respond(200, albumsTemplate);
+	    $scope.test = 'test title';
+	    let link = $compile('<photo-album title="test"></photo-album>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h3 = directive.find('h3');
+	    let text = h3.text();
+
+	    expect(text).toBe('test title');
+	  });
+
+	  it('album directive description property should work', () => {
+	    $httpBackend.expectGET('./templates/first/albums.html')
+	      .respond(200, albumsTemplate);
+	    $scope.test = 'test description';
+	    let link = $compile('<photo-album description="test"></photo-album>');
 	    let directive = link($scope);
 	    $scope.$digest();
 	    $httpBackend.flush();
@@ -35008,6 +35039,7 @@
 	      controller: function($scope) {
 	        $scope.photoText = false;
 	        $scope.photoTextAgain = true;
+	        $scope.test = false;
 	        $scope.changeView = function() {
 	          console.log($scope.mode);
 	        };
@@ -35057,19 +35089,25 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n  <h3>{{title}}</h3>\n  <h3>{{description}}</h3>\n  <img src=\"{{url}}\" alt=\"\">\n</div\n";
+	module.exports = "<div>\n  <div ng-hide=\"test\">\n    <h3>{{title}}</h3>\n    <h3>{{description}}</h3>\n  </div>\n  <img src=\"{{url}}\" alt=\"\">\n</div\n";
 
 /***/ },
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n  <h3>{{title}}</h3>\n  <h3>{{description}}</h3>\n  <img src=\"{{url}}\" height= \"100px\" width=\"100px\" alt=\"{{title}}\">\n</div\n";
+	module.exports = "<div>\n  <div ng-hide=\"test\">\n    <h3>{{title}}</h3>\n    <h3>{{description}}</h3>\n  </div>\n  <img src=\"{{url}}\" height= \"100px\" width=\"100px\" alt=\"{{title}}\">\n</div\n";
 
 /***/ },
 /* 18 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n  <h3>{{title}}</h3>\n  <h3>{{url}}</h3>\n  <h3>{{description}}</h3>\n</div>\n";
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\n\n<div ng-if=\"mode === 'single'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <tiny-image-directive ng-show=\"photoTextAgain\"   ng-click=\"toggle(photo)\" url=\"photo.url\"></tiny-image-directive>\n    </li>\n  </ul>\n  <div ng-show=\"photoText\">\n    <full-image-directive ng-click=\"toggle(photo)\" url=\"currentPhoto.url\"></full-image-directive>\n  </div>\n</div>\n\n<div ng-if=\"mode === 'list'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <full-image-directive ng-click=\"toggle(photo)\" url=\"photo.url\"></full-image-directive>\n      <div ng-show=\"photoText\">\n        <first-image-directive title=\"photo.title\"></first-image-directive>\n      </div>\n    </li>\n  </ul>\n</div>\n\n<lable>Full Image Album<input type=\"radio\" name=\"mode\" value=\"list\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n<lable>Tiny Image Album<input type=\"radio\" name=\"mode\" value=\"single\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n\n<div ng-hide=\"test\">\n  <h3>{{title}}</h3>\n  <h3>{{description}}</h3>\n</div>\n";
 
 /***/ }
 /******/ ]);
