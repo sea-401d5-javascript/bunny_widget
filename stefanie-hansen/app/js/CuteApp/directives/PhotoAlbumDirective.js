@@ -4,14 +4,12 @@ module.exports = function(app) {
       restrict: 'E',
       templateUrl: './templates/CuteApp/album.html',
       scope: {
-        images: '@',
-        title: '@',
-        description: '@'
+        redPanda: '=',
+        sloth: '=',
+        kitten: '='
       },
-      link: function($scope, ele) {
-        ele.bind('click', function() {
-          $scope.mode === 'grid' ? $scope.mode === 'table' : $scope.mode === 'grid';
-        });
+      controller:
+      show photos method!
       }
     };
   });

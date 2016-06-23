@@ -10,13 +10,11 @@
 
 <body data-ng-app="CuteApp">
 
-    <main ng-cloak ng-controller="ImageController as image">
+    <main ng-cloak ng-controller="ImageController as imagectrl">
 
-      <description-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></description-directive>
-
-      <full-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></full-directive>
-
-      <thumbnail-directive url="{{image.url}}" description="{{image.description}}"></thumbnail-directive>
+      <photo-album-directive images="imagectrl.redPanda"></photo-album-directive>
+      <photo-album-directive images="imagectrl.kitten"></photo-album-directive>
+      <photo-album-directive images="imagectrl.sloth"></photo-album-directive>
 
     </main>
     <script src="bundle.js"></script>

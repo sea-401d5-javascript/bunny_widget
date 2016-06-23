@@ -1,6 +1,9 @@
 module.exports = function(app) {
-  app.controller('ImageController', ['$scope', function() {
+  app.controller('AlbumController', ['$scope', function() {
 
+    // have a directive for each one.
+    // show each album of thumbnails, click on thumbnail, show it full size and hide all the other thumbnails in THAT album. show/hide list of descriptions with radio buttons?
+    this.animals = [this.sloths, this.redPandas, this.kittens];
     this.sloths = {};
     this.sloths.title = 'Sloths';
     this.sloths.description = 'The slowest and the cutest';
