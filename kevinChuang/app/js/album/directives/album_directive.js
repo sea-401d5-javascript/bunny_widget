@@ -14,10 +14,10 @@ module.exports = function(app) {
       link: function(scope, elem, attr, controller) {
         scope.showImage = function(img) {
           if (!img) {
-            scope.mode = 'text'
+            scope.mode = 'text';
           }
           controller.currentImg = img;
-          controller.mode = 'currentImg'
+          controller.mode = 'currentImg';
         };
         scope.closeImage = function() {
           controller.currentImg = '';
