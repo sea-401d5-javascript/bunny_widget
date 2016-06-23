@@ -1,11 +1,14 @@
 <div>
+
   <div ng-hide="mode === 'thumbnails'">
     <description-directive animal="animal"> "></description-directive>
   </div>
-  <div ng-hide="mode === 'descriptions'">
-    <thumbnail-directive animal="animal" ng-repeat="image in animal.images"> "></thumbnail-directive>
-  </div>
+
+  <ul ng-hide="mode === 'descriptions'">
+    <thumbnail-directive animal = "animal" ng-repeat="image in animal.images"> "></thumbnail-directive>
+  </ul>
 
   <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
   <label>Thumbnails<input type="radio" name="mode" value="thumbnails" ng-model="mode" ng-change="changeView()"/></label>
+
 </div>
