@@ -8,7 +8,8 @@ var files = ['*.js', './app/*.js', './app/js/*.js', './app/js/photoalbum/*.js', 
 
 const paths = {
   js:__dirname + '/app/js/**/**/*.js',
-  html:__dirname + '/app/**/*.html'
+  html:__dirname + '/app/**/*.html',
+  css:__dirname + '/app/css/*.css'
 };
 
 gulp.task('lint', () => {
@@ -17,8 +18,13 @@ gulp.task('lint', () => {
   .pipe(eslint.format());
 });
 
-gulp.task('copy', () => {
+gulp.task('copy-html', () => {
   return gulp.src(paths.html)
+  .pipe(gulp.dest(__dirname + '/build'));
+});
+
+gulp.task('copy-css', () => {
+  return gulp.src(paths.css)
   .pipe(gulp.dest(__dirname + '/build'));
 });
 
@@ -32,9 +38,10 @@ gulp.task('bundle', () => {
   .pipe(gulp.dest('./build'));
 });
 
-gulp.task('default', ['bundle', 'copy']);
+gulp.task('default', ['bundle', 'copy-html', 'copy-css']);
 
 gulp.task('watch', () => {
   gulp.watch(paths.js, ['lint', 'bundle']);
-  gulp.watch(paths.html, ['copy']);
+  gulp.watch(paths.html, ['copy-html']);
+  gulp.watch(paths.css, ['copy-css']);
 });

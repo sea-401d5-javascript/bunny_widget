@@ -16,14 +16,14 @@ module.exports = function(app) {
           console.log($scope.mode);
         };
 
-        $scope.showThumb = function(photo) {
+        $scope.showThumbAsFull = function(photo) {
           if(!photo) {
             $scope.mode = 'text';
             return;
           }
 
           $scope.currentPhoto = photo;
-          $scope.mode = 'thumb';
+          $scope.mode = 'full';
         };
       }
     };
