@@ -18,7 +18,7 @@ module.exports = function(app) {
 
         $scope.showThumbAsFull = function(photo) {
           if(!photo) {
-            $scope.mode = 'text';
+            $scope.mode = 'thumb';
             return;
           }
 
