@@ -4,10 +4,7 @@ module.exports = function(app) {
       templateUrl: './templates/FirstApp/FullTemplate.html',
       restrict: 'E',
       scope: {
-        label: '=',
-        description: '=',
-        url: '=',
-        width: '='
+        pic:'='
       },
       controller: function($scope){
         console.log($scope);

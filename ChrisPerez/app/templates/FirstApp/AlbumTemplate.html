@@ -1,9 +1,9 @@
 <div>
 
   <ul>
-    <li ng-repeat="pic in album">
-      <full-directive ng-if="mode === 'thumb' || !mode" ng-hide="mode === 'text'" url="pic.url" description="pic.description" label="pic.label" width="pic.width"></full-directive>
-      <text-directive ng-if="mode === 'text'" ng-hide="mode === 'thumb'" url="pic.url" description="pic.description" label="pic.label"></text-directive>
+    <li ng-repeat="pic in album" >
+      <full-directive pic="pic" ng-if="mode === 'thumb' || !mode" ng-hide="mode === 'text'" url="pic.url" description="pic.description" label="pic.label" width="pic.width"></full-directive>
+      <text-directive pic="pic" ng-if="mode === 'text'" ng-hide="mode === 'thumb'" url="pic.url" description="pic.description" label="pic.label"></text-directive>
     </li>
   </ul>
   <label>Thumbnail view<input type="radio" name="mode" value="thumb" ng-model="mode"></label>

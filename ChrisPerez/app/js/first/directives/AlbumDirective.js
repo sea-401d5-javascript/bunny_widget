@@ -9,8 +9,13 @@ module.exports = function(app) {
       },
       controller: function(){
         //$scope.album = [];
-        this.zoom = function(width){
-          width = width * 400;
+        this.zoom = function(pic){
+          console.log('zoom?', pic.width);
+          if (pic.width === 100){
+            return pic.width = pic.width * 4;
+          } else {
+            return pic.width = 100;
+          }
         };
       }
     };
