@@ -19,6 +19,11 @@ module.exports = function(app) {
           controller.currentImg = img;
           controller.mode = 'currentImg'
         };
+        scope.closeImage = function() {
+          controller.currentImg = '';
+          controller.mode = 'thumbnail';
+        };
+
         scope.$watch(function() {
           return controller.currentImg;
         }, function() {
