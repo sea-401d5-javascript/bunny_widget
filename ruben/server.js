@@ -1,7 +1,10 @@
 'use strict';
-var express = require('express');
-var app = express();
+
+const express = require('express');
+const app = express();
+
 app.use(express.static(__dirname + '/build'));
-var server = app.listen(3000, function(){
+
+app.listen(3000, () => {
   console.log('up on 3000');
 });
