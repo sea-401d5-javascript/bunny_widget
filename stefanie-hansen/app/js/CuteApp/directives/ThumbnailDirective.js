@@ -3,13 +3,8 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/thumbnail.html',
       scope: {
-        animal: '=',
         image: '='
-      },
-      link: function(scope, elem, attr, controller) {
-        scope.enlargeImage = controller.enlargeImage;
-      },
-      require: '^photoAlbumDirective'
+      }
     };
   });
 };

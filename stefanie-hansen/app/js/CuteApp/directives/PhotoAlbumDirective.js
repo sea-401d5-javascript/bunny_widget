@@ -3,15 +3,27 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/album.html',
       scope: {
-        animal: '='
+        animal: '=',
+        image: '=',
+        images: '='
       },
       controller: function($scope) {
+        $scope.showFull = false;
+        $scope.showThumbnails = true;
+
         $scope.changeView = function() {
           $scope.mode === 'thumbnails' ? $scope.mode === 'descriptions' : $scope.mode === 'thumbnails';
         };
-        $scope.enlargeImage = function(image) {
+        $scope.toggleImage = function(image) {
           console.log('clicked');
-          $scope.mode === 'active' ? $scope.mode === 'inactive' : $scope.mode === 'active';
+          $scope.currentImage = image;
+          if (!$scope.currentImage) {
+            $scope.showFull = !$scope.showFull;
+          } else if ($scope.showFull) {
+            $scope.showThumbnails = false;
+          } else {
+            $scope.showThumbnails = true;
+          }
         };
       }
     };
