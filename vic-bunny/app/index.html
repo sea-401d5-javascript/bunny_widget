@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Album</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body data-ng-app="PhotoAlbum">
+  <main ng-cloak ng-controller="PhotoAlbumController as albumctrl">
+    <photo-album photos="albumctrl.weimeraners.photos" title="{{albumctrl.weimeraners.title}}" description="{{albumctrl.weimeraners.description}}"></photo-album>
+    <photo-album photos="albumctrl.piglets.photos" title="{{albumctrl.piglets.title}}" description="{{albumctrl.piglets.description}}"></photo-album>
+    <photo-album photos="albumctrl.hedgehogs.photos" title="{{albumctrl.hedgehogs.title}}" description="{{albumctrl.hedgehogs.description}}"></photo-album>
+  </main>
+  <script src="bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div>
+  <ul ng-if="mode === 'text'">
+    <text-only title="{{title}}" description="{{description}}"></text-only>
+  </ul>
+  <ul ng-if="mode === 'thumb'">
+    <thumb-size url="photo.url" alt="photo.alt" ng-repeat="photo in photos" ng-click="showThumbAsFull(photo)"></thumb-size>
+  </ul>
+  <ul>
+    <full-size ng-if="mode === 'full'" url="currentPhoto.url" alt="photo.alt" ng-click="showThumbAsFull()"></full-size>
+  </ul>
+  <label>Table View<input type="radio" name="mode" value="text" ng-model="mode" ng-click="changeView()"/></label>
+  <label>Grid View<input type="radio" name="mode" value="thumb" ng-model="mode" ng-click="changeView()"/></label>
+</div>
