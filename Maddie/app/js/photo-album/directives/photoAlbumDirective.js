@@ -8,7 +8,7 @@ module.exports = function(app) {
         description: '@'
       },
       controller: function($scope) {
-        $scope.mode = 'table';
+        //$scope.mode = 'table';
         $scope.changeView = function() {
           console.log($scope.mode);
         };
