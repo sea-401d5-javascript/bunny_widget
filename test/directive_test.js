@@ -163,4 +163,26 @@ describe('directive tests', () => {
 
     expect(text).toBe('test description');
   });
+
+  it('should list some notes', () => {
+    $httpBackend.expectGET('./templates/first/albums.html')
+      .respond(200, albumsTemplate);
+    $httpBackend.expectGET('./templates/first/full_image_template.html')
+      .respond(200, fullImageTemplate);
+
+    $scope.data = [{
+      body: 'test'
+    }, {
+      body: 'test two'
+    }];
+
+    let link = $compile('<photo-album photo="data"></photo-album>');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    console.log(directive);
+  });
+
+
 });
