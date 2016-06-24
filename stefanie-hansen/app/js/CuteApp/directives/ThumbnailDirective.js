@@ -3,7 +3,7 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/thumbnail.html',
       scope: {
-        image: '='
+        imageUrl: '@'
       }
     };
   });
