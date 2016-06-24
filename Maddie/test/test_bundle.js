@@ -95,15 +95,16 @@
 	      .respond(200, smallImage);
 	      $scope.test = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS2V0f1E80Jci4dlaRnbS1ahS72neL4I07WVAiWlMvcyqrqWT5LvQ';
 	      $scope.testAlt = 'pug test 1';
-	      let link = $compile('<small-image-directive url="{{test}}" alt="{{testAlt}}">');
+	      let link = $compile('<small-image-directive url="test" alt="testAlt">');
 	      let directive = link($scope);
 	      $scope.$digest();
 	      $httpBackend.flush();
 
 	      let img = directive.find('img');
-	      let pug = img.html();
+	      console.log(img);
 
-	      console.log(pug);
+
+
 	    });
 	  });
 	});
