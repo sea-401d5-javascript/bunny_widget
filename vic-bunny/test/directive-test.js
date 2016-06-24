@@ -15,7 +15,7 @@ describe('directive tests', () => {
   let $scope;
   let $compile;
 
-  before(() => {
+  beforeEach(() => {
     angular.mock.module('PhotoAlbum');
     angular.mock.inject(function(_$httpBackend_, $rootScope, _$compile_) {
       $scope = $rootScope.$new();
@@ -25,7 +25,7 @@ describe('directive tests', () => {
   });
 
   it('should be my-test directive', () => {
-    $httpBackend.expectGET('./template/photoalbum/mytest.html')
+    $httpBackend.expectGET('./templates/photoalbum/mytest.html')
     .respond(200, myTestTemplate);
     $scope.test = 'test data';
     let link = $compile('<my-test data="test"></my-test>');

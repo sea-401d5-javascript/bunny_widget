@@ -3,4 +3,5 @@ module.exports = function(app) {
   require('./thumbsize-directive')(app);
   require('./fullsize-directive')(app);
   require('./photoalbum-directive')(app);
+  require('./mytest')(app);
 };
