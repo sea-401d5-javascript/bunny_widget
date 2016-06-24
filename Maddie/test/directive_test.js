@@ -89,12 +89,8 @@ describe('directive tests', () => {
     it('should dislay three photos in grid mode', () => {
       $httpBackend.expectGET('./templates/photoAlbum.html')
       .respond(200, photoAlbum);
-      // $httpBackend.expectGET('./templates/smallImage.html')
-      // .respond(200, smallImage);
 
       $scope.pugs = {
-        title:'pugs',
-        desription:'pugs test',
         photos:[{
           url:'www.test1.com',
           alt:'pug test 1'
@@ -107,7 +103,7 @@ describe('directive tests', () => {
         }]
       };
 
-      let link = $compile('<photo-album-directive photos="pugs"></photo-album-directive>');
+      let link = $compile('<photo-album-directive photos="pugs.photos"></photo-album-directive>');
       let directive = link($scope);
       $scope.$digest();
       $httpBackend.flush();
@@ -119,7 +115,37 @@ describe('directive tests', () => {
       $scope.$digest();
       $httpBackend.flush();
 
-      console.log(directive);
+      let grid = directive.find('small-image-directive');
+      expect(grid.length).toBe(3);
+
+    });
+    it('should only display text in table mode', () => {
+      $httpBackend.expectGET('./templates/photoAlbum.html')
+      .respond(200, photoAlbum);
+
+      $scope.pugs = {
+        title: 'pugs',
+        description: 'pugs test'
+      };
+
+      let link = $compile('<photo-album-directive title="{{pugs.title}}" description="{{pugs.description}}"></photo-album-directive>');
+      let directive = link($scope);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      directive.isolateScope().mode = 'table';
+      $httpBackend.expectGET('./templates/textOnly.html')
+      .respond(200, textOnly);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      let table = directive.find('text-only-directive');
+      let table_title = (table.find('h3')).text();
+      let table_D = (table.find('p')).text();
+
+      expect(table_title).toBe('pugs');
+      expect(table_D).toBe('pugs test');
+
 
     });
   });
