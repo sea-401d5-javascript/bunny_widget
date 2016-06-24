@@ -213,21 +213,50 @@
 	  it('should list some notes', () => {
 	    $httpBackend.expectGET('./templates/first/albums.html')
 	      .respond(200, albumsTemplate);
-	    $httpBackend.expectGET('./templates/first/full_image_template.html')
-	      .respond(200, fullImageTemplate);
+	    // $httpBackend.expectGET('./templates/first/full_image_template.html')
+	    //   .respond(200, fullImageTemplate);
 
-	    $scope.data = [{
-	      body: 'test'
-	    }, {
-	      body: 'test two'
-	    }];
+	    // $httpBackend.expectGET('./templates/first/title_image_template.html')
+	    //   .respond(200, titleImageTemplate);
 
-	    let link = $compile('<photo-album photo="data"></photo-album>');
+
+	    $scope.data = {
+	      title: 'These pussies are super bad!!!',
+	      description: 'Who let these pussies out?',
+	      album: [
+	        {
+	          url: 'https://s-media-cache-ak0.pinimg.com/236x/d8/10/e4/d810e49915d82f8b281d07f9b0d55cd7.jpg',
+	          title: 'Damn this pussy is getting locked up'
+	        },
+	        {
+	          url: 'http://1.bp.blogspot.com/_DTGEcBi-w0g/TIg0BOQWHuI/AAAAAAAAAmI/UeFySd1t6Yw/s640/bad-cat3.jpg',
+	          title: 'Back in da hood pussy'
+	        },
+	        {
+	          url: 'https://secure.static.tumblr.com/468c354df166018752850b504e7a4561/earrb7t/xoLnoany6/tumblr_static_tumblr_static_2rtorf46vu0w4kgc8gowcc4gk_640.jpg',
+	          title: 'This pussy is far out man'
+	        }
+	      ]
+	    }
+
+
+
+	    let link = $compile('<photo-album photos="data"></photo-album>');
 	    let directive = link($scope);
 	    $scope.$digest();
 	    $httpBackend.flush();
 
-	    console.log(directive);
+
+	    $httpBackend.expectGET('./templates/first/full_image_template.html')
+	      .respond(200, fullImageTemplate);
+	      $httpBackend.expectGET('./templates/first/title_image_template.html')
+	        .respond(200, titleImageTemplate);
+
+	  directive.isolateScope().mode = 'list';
+	    $scope.$digest();
+	      $httpBackend.flush();
+
+	        console.log(directive);
 	  });
 
 
@@ -35129,7 +35158,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n\n<div ng-if=\"mode === 'single'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <tiny-image-directive ng-show=\"photoTextAgain\"   ng-click=\"toggle(photo)\" url=\"photo.url\"></tiny-image-directive>\n    </li>\n  </ul>\n  <div ng-show=\"photoText\">\n    <full-image-directive ng-click=\"toggle(photo)\" url=\"currentPhoto.url\"></full-image-directive>\n  </div>\n</div>\n\n<div ng-if=\"mode === 'list'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <full-image-directive ng-click=\"toggle(photo)\" url=\"photo.url\"></full-image-directive>\n      <div ng-show=\"photoText\">\n        <first-image-directive title=\"photo.title\"></first-image-directive>\n      </div>\n    </li>\n  </ul>\n</div>\n\n<lable>Full Image Album<input type=\"radio\" name=\"mode\" value=\"list\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n<lable>Tiny Image Album<input type=\"radio\" name=\"mode\" value=\"single\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n\n<div ng-hide=\"test\">\n  <h3>{{title}}</h3>\n  <h3>{{description}}</h3>\n</div>\n";
+	module.exports = "\n\n\n<div ng-if=\"mode === 'single'\">\n\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <tiny-image-directive ng-show=\"photoTextAgain\"   ng-click=\"toggle(photo)\" url=\"photo.url\"></tiny-image-directive>\n    </li>\n  </ul>\n  <div ng-show=\"photoText\">\n    <full-image-directive ng-click=\"toggle(photo)\" url=\"currentPhoto.url\"></full-image-directive>\n  </div>\n</div>\n\n<div ng-if=\"mode === 'list'\">\n\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <full-image-directive ng-click=\"toggle(photo)\" url=\"photo.url\"></full-image-directive>\n      <div ng-show=\"photoText\">\n        <first-image-directive title=\"photo.title\"></first-image-directive>\n      </div>\n    </li>\n  </ul>\n</div>\n\n<lable>Full Image Album<input type=\"radio\" name=\"mode\" value=\"list\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n<lable>Tiny Image Album<input type=\"radio\" name=\"mode\" value=\"single\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n\n<div ng-hide=\"test\">\n  <h3>{{title}}</h3>\n  <h3>{{description}}</h3>\n</div>\n";
 
 /***/ }
 /******/ ]);

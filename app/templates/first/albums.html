@@ -2,6 +2,7 @@
 
 
 <div ng-if="mode === 'single'">
+
   <ul>
     <li ng-repeat="photo in photos">
       <tiny-image-directive ng-show="photoTextAgain"   ng-click="toggle(photo)" url="photo.url"></tiny-image-directive>
@@ -13,6 +14,7 @@
 </div>
 
 <div ng-if="mode === 'list'">
+
   <ul>
     <li ng-repeat="photo in photos">
       <full-image-directive ng-click="toggle(photo)" url="photo.url"></full-image-directive>

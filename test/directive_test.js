@@ -167,21 +167,50 @@ describe('directive tests', () => {
   it('should list some notes', () => {
     $httpBackend.expectGET('./templates/first/albums.html')
       .respond(200, albumsTemplate);
-    $httpBackend.expectGET('./templates/first/full_image_template.html')
-      .respond(200, fullImageTemplate);
+    // $httpBackend.expectGET('./templates/first/full_image_template.html')
+    //   .respond(200, fullImageTemplate);
 
-    $scope.data = [{
-      body: 'test'
-    }, {
-      body: 'test two'
-    }];
+    // $httpBackend.expectGET('./templates/first/title_image_template.html')
+    //   .respond(200, titleImageTemplate);
 
-    let link = $compile('<photo-album photo="data"></photo-album>');
+
+    $scope.data = {
+      title: 'These pussies are super bad!!!',
+      description: 'Who let these pussies out?',
+      album: [
+        {
+          url: 'https://s-media-cache-ak0.pinimg.com/236x/d8/10/e4/d810e49915d82f8b281d07f9b0d55cd7.jpg',
+          title: 'Damn this pussy is getting locked up'
+        },
+        {
+          url: 'http://1.bp.blogspot.com/_DTGEcBi-w0g/TIg0BOQWHuI/AAAAAAAAAmI/UeFySd1t6Yw/s640/bad-cat3.jpg',
+          title: 'Back in da hood pussy'
+        },
+        {
+          url: 'https://secure.static.tumblr.com/468c354df166018752850b504e7a4561/earrb7t/xoLnoany6/tumblr_static_tumblr_static_2rtorf46vu0w4kgc8gowcc4gk_640.jpg',
+          title: 'This pussy is far out man'
+        }
+      ]
+    }
+
+
+
+    let link = $compile('<photo-album photos="data"></photo-album>');
     let directive = link($scope);
     $scope.$digest();
     $httpBackend.flush();
 
-    console.log(directive);
+
+    $httpBackend.expectGET('./templates/first/full_image_template.html')
+      .respond(200, fullImageTemplate);
+      $httpBackend.expectGET('./templates/first/title_image_template.html')
+        .respond(200, titleImageTemplate);
+
+  directive.isolateScope().mode = 'list';
+    $scope.$digest();
+      $httpBackend.flush();
+
+        console.log(directive);
   });
 
 
