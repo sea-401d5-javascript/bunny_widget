@@ -1,6 +1,6 @@
 'use strict';
 
-const angular = require('angular');
+// const angular = require('angular');
 
-let ImageApp = angular.module('ImageApp', []);
+var ImageApp = require('angular').module('ImageApp', []);
 require('./first')(ImageApp);

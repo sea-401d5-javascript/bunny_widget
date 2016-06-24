@@ -1,3 +1,4 @@
+'use strict';
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
 
@@ -23,13 +24,18 @@ gulp.task('bundle', () => {
 });
 
 gulp.task('bundle:test', () => {
-  return gulp.src(__dirname + '/test/*test.js')
+  return gulp.src('./test/**/*_test.js')
     .pipe(webpack({
       output: {
         filename: 'test_bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /\.html$/,
+          loader: 'html'
+        }]
       }
-    }))
-    .pipe(gulp.dest(__dirname + '/test'))
+    })).pipe(gulp.dest('./test'));
 });
 
 gulp.task('watch', () => {
@@ -38,4 +44,4 @@ gulp.task('watch', () => {
   gulp.watch('./app/css/app.css', ['copy']);
 });
 
-gulp.task('default', ['bundle:test', 'bundle', 'copy',]);
+gulp.task('default', ['bundle:test', 'bundle', 'copy']);
