@@ -145,8 +145,32 @@ describe('directive tests', () => {
 
       expect(table_title).toBe('pugs');
       expect(table_D).toBe('pugs test');
+    });
 
+    it('should show single picture full size', () => {
+      $httpBackend.expectGET('./templates/photoAlbum.html')
+      .respond(200, photoAlbum);
 
+      $scope.pugs = {
+        photos:[
+          {url: 'www.test1.com', alt: 'pug test 1'},
+          {url: 'www.test2.com', alt: 'pugs test 2'},
+          {url: 'www.test3.com', alt: 'pugs test 3'}
+        ]
+      };
+
+      let link = $compile('<photo-album-directive photos = "pugs.photos"></photo-album-directive>');
+      let directive = link($scope);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      directive.isolateScope().fullSize('pugs.photos[0]');
+      $httpBackend.expectGET('./templates/fullSize.html')
+      .respond(200, fullSize);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      expect(directive.isolateScope().mode).toBe('single');
     });
   });
 });
