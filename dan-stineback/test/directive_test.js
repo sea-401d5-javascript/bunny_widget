@@ -65,7 +65,7 @@ describe('directive test', () => {
     let imgWidth = img.attr('width');
     let imgHeight = img.attr('height');
 
-
+    console.log('thumbnale', directive);
     expect(title).toBe('test data');
     expect(imgDescription).toBe('test description');
     expect(imgUrl).toBe('www.test.com');
@@ -94,7 +94,7 @@ describe('directive test', () => {
     let imgWidth = img.attr('width');
     let imgHeight = img.attr('height');
 
-
+    console.log('large image', directive);
     expect(title).toBe('test data');
     expect(imgDescription).toBe('test description');
     expect(imgUrl).toBe('www.test.com');
@@ -134,7 +134,7 @@ describe('directive test', () => {
     $scope.$digest();
     $httpBackend.flush();
 
-    console.log(directive);
+    console.log('album log', directive);
   });
 
 });
