@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="style/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Cute Mammals</title>
 </head>
 
@@ -13,9 +13,11 @@
 
     <main ng-cloak ng-controller="AlbumController as albumctrl">
 
-      <photo-album-directive animal="albumctrl.animals[0]"></photo-album-directive>
-      <photo-album-directive animal="albumctrl.animals[1]"></photo-album-directive>
-      <photo-album-directive animal="albumctrl.animals[2]"></photo-album-directive>
+      <h1>Sloths, Red Pandas, and Kittens, Oh My!</h1>
+
+      <photo-album-directive animal="albumctrl.sloths" class="album"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.redPandas" class="album"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.kittens" class="album"></photo-album-directive>
 
     </main>
     <script src="bundle.js"></script>

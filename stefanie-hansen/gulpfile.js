@@ -4,7 +4,9 @@ const gulp    = require('gulp');
 const webpack = require('webpack-stream');
 
 gulp.task('copy', () => {
-  return gulp.src(__dirname + '/app/**/*.html')
+  gulp.src(__dirname + '/app/**/*.html')
+    .pipe(gulp.dest(__dirname + '/build'));
+  gulp.src(__dirname + '/app/css/style.css')
     .pipe(gulp.dest(__dirname + '/build'));
 });
 

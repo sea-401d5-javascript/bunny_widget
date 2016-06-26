@@ -2,8 +2,8 @@
 
   <description-directive animal="animal" ng-show="mode === 'descriptions'"></description-directive>
 
-  <div ng-repeat="imageurl in animal.images">
-    <thumbnail-directive imageUrl="{{imageurl}}" ng-click="toggleImage(imageurl)" ng-show="mode === 'thumbnails'"></thumbnail-directive>
+  <div ng-repeat="imageurl in animal.images" class="gallery">
+    <thumbnail-directive imageUrl="imageurl" ng-click="toggleImage(imageurl)" ng-show="mode === 'thumbnails'"></thumbnail-directive>
   </div>
 
   <full-directive ng-click="toggleImage()" currentimageurl="currentimageurl" ng-show="mode === 'full'"></full-directive>

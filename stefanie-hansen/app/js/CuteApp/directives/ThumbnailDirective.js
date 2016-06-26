@@ -3,11 +3,8 @@ module.exports = function(app) {
     return {
       templateUrl: './templates/CuteApp/thumbnail.html',
       scope: {
-        imageurl: '@'
+        imageurl: '='
       }
-      // controller: function($scope) {
-      //   $scope.imageUrl = imageUrl;
-      // }
     };
   });
 };

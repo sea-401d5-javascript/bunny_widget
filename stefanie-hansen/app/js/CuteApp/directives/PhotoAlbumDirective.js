@@ -10,7 +10,6 @@ module.exports = function(app) {
           $scope.mode === 'thumbnails' ? $scope.mode === 'descriptions' : $scope.mode === 'thumbnails';
         };
         $scope.toggleImage = function(image) {
-          console.log('clicked');
           if (image) {
             $scope.currentimageurl = image;
             $scope.mode = 'full';
