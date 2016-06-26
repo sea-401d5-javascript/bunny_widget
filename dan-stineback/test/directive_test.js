@@ -6,6 +6,8 @@ require('../app/js/client');
 
 const bunnyTemplate = require('../app/templates/firstApp/bunnyApp.html');
 const thumbnailTemplate = require('../app/templates/firstApp/thumbnail.html');
+const imageTemplate = require('../app/templates/firstApp/image.html');
+const photoTemplate = require('../app/templates/firstApp/photo.html');
 
 describe('directive test', () => {
   let $httpBackend;
@@ -19,10 +21,6 @@ describe('directive test', () => {
       $compile = _$compile_;
       $httpBackend = _$httpBackend_;
     });
-  });
-
-  it('should be a test', () => {
-    expect(true).toBe(true);
   });
 
   it('should be a test bunnyApp template', () => {
@@ -48,22 +46,95 @@ describe('directive test', () => {
     expect(texturl).toBe('url: test url');
   });
 
-  // it('should test thumbnail tempalate', () => {
-  //   $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
-  //     .respond(200, thumbnailTemplate);
-  //   $scope.title = 'test data';
-  //   $scope.description = 'test description';
-  //   $scope.url = 'test url';
-  //   // let link = $compile('<thumbnail-display url="url" description="description" title="title" ></thumbnail-display');
-  //   // let directive = link($scope);
-  //   $scope.$digest();
-  //   $httpBackend.flush();
-  //
-  //
-  //
-  //
-  //
-  //
-  // });
+  it('should test thumbnail tempalate', () => {
+    $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
+      .respond(200, thumbnailTemplate);
+    $scope.url = 'www.test.com';
+    $scope.title = 'test data';
+    $scope.description = 'test description';
+    let link = $compile('<thumbnail-display url="url" description="description" title="title"/>');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let img = directive.find('img');
+
+    let title = img.attr('title');
+    let imgDescription = img.attr('description');
+    let imgUrl = img.attr('url');
+    let imgWidth = img.attr('width');
+    let imgHeight = img.attr('height');
+
+
+    expect(title).toBe('test data');
+    expect(imgDescription).toBe('test description');
+    expect(imgUrl).toBe('www.test.com');
+    expect(imgWidth).toBe('100px');
+    expect(imgHeight).toBe('100px');
+
+  });
+
+  it('should be a test imageApp template', () => {
+    $httpBackend.expectGET('./templates/firstApp/image.html')
+      .respond(200, imageTemplate);
+    $scope.title = 'test data';
+    $scope.description = 'test description';
+    $scope.url = 'www.test.com';
+    $scope.height = '400';
+    $scope.width = '400';
+    let link = $compile('<image-display title="test" description="description" url="url" width="width" height="height"></image-display>');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let img = directive.find('img');
+    let title = img.attr('title');
+    let imgDescription = img.attr('description');
+    let imgUrl = img.attr('url');
+    let imgWidth = img.attr('width');
+    let imgHeight = img.attr('height');
+
+
+    expect(title).toBe('test data');
+    expect(imgDescription).toBe('test description');
+    expect(imgUrl).toBe('www.test.com');
+    expect(imgWidth).toBe('400');
+    expect(imgHeight).toBe('400');
+  });
+
+  it('should be a test photoApp template', () => {
+    $httpBackend.expectGET('./templates/firstApp/photo.html')
+      .respond(200, photoTemplate);
+
+    $scope.test = {
+      photos: [{
+        url: 'www.test1.com',
+        title: 'test photo 1'
+      }, {
+        url: 'www.test2.com',
+        title: 'test photo 2'
+      }, {
+        url: 'www.test3.com',
+        title: 'test photo 3'
+      }]
+    };
+
+    let link = $compile('<photo-album photos="test.photos" ></photo-album');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    directive.isolateScope().mode = 'tiny';
+    $httpBackend.expectGET('./tempalates/firstApp/bunnyApp.html')
+      .respond(200, bunnyTemplate);
+    $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
+      .respond(200, thumbnailTemplate);
+    $httpBackend.expectGET('./templates/firstApp/image.html')
+      .respond(200, imageTemplate);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    console.log(directive);
+  });
 
 });
