@@ -12,7 +12,7 @@ module.exports = function(app) {
         $scope.toggleImage = function(image) {
           console.log('clicked');
           if (image) {
-            $scope.currentImage = image;
+            $scope.currentimageurl = image;
             $scope.mode = 'full';
             return;
           }

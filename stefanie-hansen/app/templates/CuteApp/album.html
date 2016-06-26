@@ -2,11 +2,11 @@
 
   <description-directive animal="animal" ng-show="mode === 'descriptions'"></description-directive>
 
-  <div ng-repeat="imageUrl in animal.images">
-    <thumbnail-directive imageUrl="{{imageUrl}}" ng-click="toggleImage(imageUrl)" ng-show="mode === 'thumbnails'"></thumbnail-directive>
+  <div ng-repeat="imageurl in animal.images">
+    <thumbnail-directive imageUrl="{{imageurl}}" ng-click="toggleImage(imageurl)" ng-show="mode === 'thumbnails'"></thumbnail-directive>
   </div>
 
-  <full-directive ng-click="toggleImage()" currentImageUrl="currentImageUrl" ng-show="mode === 'full'"></full-directive>
+  <full-directive ng-click="toggleImage()" currentimageurl="currentimageurl" ng-show="mode === 'full'"></full-directive>
 
   <div>
     <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
