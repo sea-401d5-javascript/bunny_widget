@@ -84,6 +84,8 @@
 
 	    expect(thumbnail.attr('src')).toBe('testUrl');
 	    expect(thumbnail.attr('height')).toBe('100');
+	    expect(thumbnail.attr('ng-click')).toBe('toggleImage(imageUrl)');
+	    expect(thumbnail.attr('ng-show')).toBe("mode === 'thumbnails'");
 	  });
 
 	  it('should have multiple thumbnails', () => {
@@ -171,7 +173,7 @@
 	    let full = directive.find('full-directive');
 	    expect(full.attr('currentimageurl')).toBe('currentimageurl');
 	    expect(full.attr('ng-click')).toBe('toggleImage()');
-	    expect(full.attr('ng-show')).toBe('mode === "full"');
+	    expect(full.attr('ng-show')).toBe("mode === 'full'");
 
 	    console.log(full);
 
