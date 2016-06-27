@@ -127,4 +127,4 @@ describe('directive tests', () => {
     expect(full.attr('ng-click')).toBe('toggleImage()');
     expect(full.attr('ng-show')).toBe("mode === 'full'");
   });
-})
+});
