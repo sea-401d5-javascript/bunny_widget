@@ -16,7 +16,7 @@ gulp.task('bundle:test', ()=> {
   return gulp.src('./test/**/*_test.js')
   .pipe(webpack({
     output: {
-      filename: 'bundle_test.js'
+      filename: 'test_bundle.js'
     },
     module: {
       loaders: [{
