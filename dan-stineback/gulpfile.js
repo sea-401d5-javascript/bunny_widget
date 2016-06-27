@@ -26,7 +26,7 @@ gulp.task('copy-html', ['clean'], ()=>{
 // });
 
 gulp.task('bundle', ['clean'], ()=>{
-  return gulp.src('./app/js/clent.js')
+  return gulp.src('./app/js/client.js')
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
