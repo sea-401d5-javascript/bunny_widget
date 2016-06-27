@@ -1,0 +1,15 @@
+ul h1{
+  font-size: 16px;
+}
+
+ul h2{
+  font-size: 12px;
+}
+
+ul h3{
+  font-size: 12px;
+}
+
+ul{
+  list-style: none;
+}
