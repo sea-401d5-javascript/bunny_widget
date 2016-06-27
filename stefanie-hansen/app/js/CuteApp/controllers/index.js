@@ -1,3 +1,3 @@
 module.exports = function(app) {
-  require('./AlbumController')(app);
+  require('./album-controller')(app);
 };

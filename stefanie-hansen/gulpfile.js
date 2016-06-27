@@ -16,6 +16,21 @@ gulp.task('bundle', () => {
     .pipe(gulp.dest('./build'));
 });
 
+gulp.task('bundle:test', () => {
+  return gulp.src('./test/**/*-test.js')
+    .pipe(webpack({
+      output:{
+        filename: 'test-bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /\.html$/,
+          loader: 'html'
+        }]
+      }
+    })).pipe(gulp.dest('./test'));
+});
+
 gulp.task('build', ['copy', 'bundle']);
 
 gulp.task('default', ['build']);
