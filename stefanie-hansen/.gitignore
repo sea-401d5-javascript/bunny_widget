@@ -1,7 +1,7 @@
 # Created by https://www.gitignore.io/api/node,osx,windows,vim
 
 build/
-test/test-bundle
+test/test-bundle.js
 
 ### Node ###
 # Logs
