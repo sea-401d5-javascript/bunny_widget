@@ -7,7 +7,7 @@ require('../app/js/client');
 const bunnyTemplate = require('../app/templates/firstApp/bunnyApp.html');
 const thumbnailTemplate = require('../app/templates/firstApp/thumbnail.html');
 const imageTemplate = require('../app/templates/firstApp/image.html');
-// const photoTemplate = require('../app/templates/firstApp/photo.html');
+const photoTemplate = require('../app/templates/firstApp/photo.html');
 
 describe('directive test', () => {
   let $httpBackend;
@@ -93,6 +93,12 @@ describe('directive test', () => {
   // it('should be a test photoApp template', () => {
   //   $httpBackend.expectGET('./templates/firstApp/photo.html')
   //     .respond(200, photoTemplate);
+  //   $httpBackend.expectGET('./tempalates/firstApp/bunnyApp.html')
+  //   .respond(200, bunnyTemplate);
+  //   $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
+  //   .respond(200, thumbnailTemplate);
+  //   $httpBackend.expectGET('./templates/firstApp/image.html')
+  //   .respond(200, imageTemplate);
   //
   //   $scope.test = {
   //     photos: [{
@@ -107,20 +113,28 @@ describe('directive test', () => {
   //     }]
   //   };
   //
-  //   let link = $compile('<photo-album photos="test.photos" ></photo-album');
+  //   // let link = $compile('<photo-album photos="test.photos" ></photo-album');
+  //   // let directive = link($scope);
+  //   // $scope.$digest();
+  //   // $httpBackend.flush();
+  //
+  //   directive.isolateScope().mode = 'tiny';
+  //
+  //
+  //   let link = $compile('<thumbnail-display></thumbnail-display>');
   //   let directive = link($scope);
   //   $scope.$digest();
   //   $httpBackend.flush();
   //
-  //   directive.isolateScope().mode = 'tiny';
-  //   $httpBackend.expectGET('./tempalates/firstApp/bunnyApp.html')
-  //     .respond(200, bunnyTemplate);
-  //   $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
-  //     .respond(200, thumbnailTemplate);
-  //   $httpBackend.expectGET('./templates/firstApp/image.html')
-  //     .respond(200, imageTemplate);
-  //   $scope.$digest();
-  //   $httpBackend.flush();
+  //   let img = directive.find('img');
+  //   let imgUrl = img.attr('src');
+  //   let imgWidth = img.attr('width');
+  //   let imgHeight = img.attr('height');
+  //
+  //   expect(imgUrl).toBe('www.test.com');
+  //   expect(imgWidth).toBe('400');
+  //   expect(imgHeight).toBe('400');
+  //
   //
   //   console.log('album log', directive);
   // });

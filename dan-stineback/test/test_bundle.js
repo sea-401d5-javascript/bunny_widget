@@ -53,7 +53,7 @@
 	const bunnyTemplate = __webpack_require__(14);
 	const thumbnailTemplate = __webpack_require__(15);
 	const imageTemplate = __webpack_require__(16);
-	// const photoTemplate = require('../app/templates/firstApp/photo.html');
+	const photoTemplate = __webpack_require__(17);
 
 	describe('directive test', () => {
 	  let $httpBackend;
@@ -136,40 +136,54 @@
 	    expect(imgHeight).toBe('400');
 	  });
 
-	  // it('should be a test photoApp template', () => {
-	  //   $httpBackend.expectGET('./templates/firstApp/photo.html')
-	  //     .respond(200, photoTemplate);
-	  //
-	  //   $scope.test = {
-	  //     photos: [{
-	  //       url: 'www.test1.com',
-	  //       title: 'test photo 1'
-	  //     }, {
-	  //       url: 'www.test2.com',
-	  //       title: 'test photo 2'
-	  //     }, {
-	  //       url: 'www.test3.com',
-	  //       title: 'test photo 3'
-	  //     }]
-	  //   };
-	  //
-	  //   let link = $compile('<photo-album photos="test.photos" ></photo-album');
-	  //   let directive = link($scope);
-	  //   $scope.$digest();
-	  //   $httpBackend.flush();
-	  //
-	  //   directive.isolateScope().mode = 'tiny';
-	  //   $httpBackend.expectGET('./tempalates/firstApp/bunnyApp.html')
-	  //     .respond(200, bunnyTemplate);
-	  //   $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
-	  //     .respond(200, thumbnailTemplate);
-	  //   $httpBackend.expectGET('./templates/firstApp/image.html')
-	  //     .respond(200, imageTemplate);
-	  //   $scope.$digest();
-	  //   $httpBackend.flush();
-	  //
-	  //   console.log('album log', directive);
-	  // });
+	  it('should be a test photoApp template', () => {
+	    $httpBackend.expectGET('./templates/firstApp/photo.html')
+	      .respond(200, photoTemplate);
+	    $httpBackend.expectGET('./tempalates/firstApp/bunnyApp.html')
+	    .respond(200, bunnyTemplate);
+	    $httpBackend.expectGET('./templates/firstApp/thumbnail.html')
+	    .respond(200, thumbnailTemplate);
+	    $httpBackend.expectGET('./templates/firstApp/image.html')
+	    .respond(200, imageTemplate);
+
+	    $scope.test = {
+	      photos: [{
+	        url: 'www.test1.com',
+	        title: 'test photo 1'
+	      }, {
+	        url: 'www.test2.com',
+	        title: 'test photo 2'
+	      }, {
+	        url: 'www.test3.com',
+	        title: 'test photo 3'
+	      }]
+	    };
+
+	    // let link = $compile('<photo-album photos="test.photos" ></photo-album');
+	    // let directive = link($scope);
+	    // $scope.$digest();
+	    // $httpBackend.flush();
+
+	    directive.isolateScope().mode = 'tiny';
+
+
+	    let link = $compile('<thumbnail-display></thumbnail-display>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let img = directive.find('img');
+	    let imgUrl = img.attr('src');
+	    let imgWidth = img.attr('width');
+	    let imgHeight = img.attr('height');
+
+	    expect(imgUrl).toBe('www.test.com');
+	    expect(imgWidth).toBe('400');
+	    expect(imgHeight).toBe('400');
+
+
+	    console.log('album log', directive);
+	  });
 
 	});
 
@@ -35061,6 +35075,12 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n  <img src=\"{{url}}\" height=\"{{height}}\" width=\"{{width}}\"><br>\n\n</div>\n";
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div ng-if=\"mode === 'tiny'\">\n  <ul ng-show=\"mode === 'tiny'\" ng-hide=\"mode === 'text'\">\n    <li ng-repeat=\"photo in photos\">\n      <thumbnail-display url=\"photo.url\" ng-show=\"photoTextAgain\"   ng-click=\"toggle(photo)\"></thumbnail-display>\n    </li>\n  </ul>\n  <div ng-show=\"photoText\">\n    <image-display ng-click=\"toggle(photo)\" url=\"currentPhoto.url\"></image-display>\n    <!-- <img src=\"{{currentPhoto.url}}\"/> -->\n  </div>\n</div>\n\n<div ng-if=\"mode === 'text'\" ng-hide=\"mode === 'tiny'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <image-display ng-click=\"toggle(photo)\" url=\"photo.url\" width=\"400\" height=\"400\"></image-display>\n      <div ng-show=\"photoText\">\n        <title-directive title=\"photo.title\" url=\"photo.url\" description=\"photo.description\"></title-directive>\n      </div>\n    </li>\n  </ul>\n</div>\n<div class=\"toggle\">\n  <!-- <label for=\"\">Normal size<input type=\"radio\" name=\"mode\" value=\"normal\" ng-model=\"mode\" ng-change=\"changeView()\"/></label> -->\n  <label>Thumbnail and click image to single large image<input type=\"radio\" name=\"mode\" value=\"tiny\" ng-model=\"mode\" ng-chang=\"changeView()\"></label><br>\n  <lable>Large image and click image for text<input type=\"radio\" name=\"mode\" value=\"text\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n</div>\n";
 
 /***/ }
 /******/ ]);
