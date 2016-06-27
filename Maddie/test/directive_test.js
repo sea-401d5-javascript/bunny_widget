@@ -118,6 +118,8 @@ describe('directive tests', () => {
       let grid = directive.find('small-image-directive');
       expect(grid.length).toBe(3);
 
+      console.log(directive);
+
     });
     it('should only display text in table mode', () => {
       $httpBackend.expectGET('./templates/photoAlbum.html')
@@ -170,7 +172,12 @@ describe('directive tests', () => {
       $scope.$digest();
       $httpBackend.flush();
 
+      let img_width = (directive.find('img')).attr('width');
+      let img_height = (directive.find('img')).attr('height');
+
       expect(directive.isolateScope().mode).toBe('single');
+      expect(img_width).toBe('400');
+      expect(img_height).toBe('400');
     });
   });
 });
