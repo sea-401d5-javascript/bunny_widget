@@ -22,27 +22,7 @@ describe('directive tests', () => {
     });
   });
 
-  it('should have thumbnails', () => {
-    $httpBackend.expectGET('./templates/CuteApp/thumbnail.html')
-      .respond(200, thumbnailTemplate);
-
-    $scope.data = 'testUrl';
-
-    let link = $compile('<thumbnail-directive imageUrl="data"></thumbnail-directive>');
-
-    let directive = link($scope);
-    $scope.$digest();
-    $httpBackend.flush();
-
-    let thumbnail = directive.find('img');
-
-    expect(thumbnail.attr('src')).toBe('testUrl');
-    expect(thumbnail.attr('height')).toBe('100');
-    expect(thumbnail.attr('ng-click')).toBe('toggleImage(imageUrl)');
-    expect(thumbnail.attr('ng-show')).toBe("mode === 'thumbnails'");
-  });
-
-  it('should have multiple thumbnails', () => {
+  it('should have multiple thumbnails within an album', () => {
     $httpBackend.expectGET('./templates/CuteApp/album.html')
       .respond(200, albumTemplate);
     $httpBackend.expectGET('./templates/CuteApp/description.html')
@@ -69,6 +49,24 @@ describe('directive tests', () => {
 
     expect(directive.isolateScope().mode).toBe('thumbnails');
     expect(thumbnails.length).toBe(3);
+  });
+
+  it('should have thumbnails', () => {
+    $httpBackend.expectGET('./templates/CuteApp/thumbnail.html')
+      .respond(200, thumbnailTemplate);
+
+    $scope.data = 'testUrl';
+
+    let link = $compile('<thumbnail-directive imageUrl="data"></thumbnail-directive>');
+
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let thumbnail = directive.find('img');
+
+    expect(thumbnail.attr('src')).toBe('testUrl');
+    expect(thumbnail.attr('height')).toBe('100');
   });
 
   it('should have have an album description', () => {
@@ -128,8 +126,5 @@ describe('directive tests', () => {
     expect(full.attr('currentimageurl')).toBe('currentimageurl');
     expect(full.attr('ng-click')).toBe('toggleImage()');
     expect(full.attr('ng-show')).toBe("mode === 'full'");
-
-    console.log(full);
-
   });
 })
