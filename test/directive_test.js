@@ -164,38 +164,32 @@ describe('directive tests', () => {
     expect(text).toBe('test description');
   });
 
-  it('should list some notes', () => {
+  it('should list some big picture on selection of full image album radio button, and there should be three', () => {
     $httpBackend.expectGET('./templates/first/albums.html')
       .respond(200, albumsTemplate);
-    // $httpBackend.expectGET('./templates/first/full_image_template.html')
-    //   .respond(200, fullImageTemplate);
-
-    // $httpBackend.expectGET('./templates/first/title_image_template.html')
-    //   .respond(200, titleImageTemplate);
-
 
     $scope.data = {
-      title: 'These pussies are super bad!!!',
-      description: 'Who let these pussies out?',
+      title: 'Test Title',
+      description: 'Test description',
       album: [
         {
-          url: 'https://s-media-cache-ak0.pinimg.com/236x/d8/10/e4/d810e49915d82f8b281d07f9b0d55cd7.jpg',
-          title: 'Damn this pussy is getting locked up'
+          url: 'https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w300',
+          title: 'URL test title 1'
         },
         {
-          url: 'http://1.bp.blogspot.com/_DTGEcBi-w0g/TIg0BOQWHuI/AAAAAAAAAmI/UeFySd1t6Yw/s640/bad-cat3.jpg',
-          title: 'Back in da hood pussy'
+          url: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+          title: 'URL test title 2'
         },
         {
-          url: 'https://secure.static.tumblr.com/468c354df166018752850b504e7a4561/earrb7t/xoLnoany6/tumblr_static_tumblr_static_2rtorf46vu0w4kgc8gowcc4gk_640.jpg',
-          title: 'This pussy is far out man'
+          url: 'http://www.networkforgood.com/wp-content/uploads/2015/08/bigstock-Test-word-on-white-keyboard-27134336.jpg',
+          title: 'URL test title 3'
         }
       ]
-    }
+    };
 
 
 
-    let link = $compile('<photo-album photos="data"></photo-album>');
+    let link = $compile('<photo-album photos="data.album"></photo-album>');
     let directive = link($scope);
     $scope.$digest();
     $httpBackend.flush();
@@ -203,15 +197,73 @@ describe('directive tests', () => {
 
     $httpBackend.expectGET('./templates/first/full_image_template.html')
       .respond(200, fullImageTemplate);
-      $httpBackend.expectGET('./templates/first/title_image_template.html')
+    $httpBackend.expectGET('./templates/first/title_image_template.html')
         .respond(200, titleImageTemplate);
 
-  directive.isolateScope().mode = 'list';
-    $scope.$digest();
-      $httpBackend.flush();
+    directive.isolateScope().mode = 'list';
 
-        console.log(directive);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let img = directive.find('img');
+
+    expect(img[0].src).toBe('https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w300');
+    expect(img[1].src).toBe('https://i.vimeocdn.com/portrait/58832_300x300.jpg');
+    expect(img[2].src).toBe('http://www.networkforgood.com/wp-content/uploads/2015/08/bigstock-Test-word-on-white-keyboard-27134336.jpg');
+
+    expect(img.length).toBe(3);
   });
 
+  it('should list some small picture on selection of tiny image album radio button, and there should be three', () => {
+    $httpBackend.expectGET('./templates/first/albums.html')
+      .respond(200, albumsTemplate);
+
+    $scope.data = {
+      title: 'Test Title',
+      description: 'Test description',
+      album: [
+        {
+          url: 'https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w300',
+          title: 'URL test title 1'
+        },
+        {
+          url: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+          title: 'URL test title 2'
+        },
+        {
+          url: 'http://www.networkforgood.com/wp-content/uploads/2015/08/bigstock-Test-word-on-white-keyboard-27134336.jpg',
+          title: 'URL test title 3'
+        }
+      ]
+    };
+
+
+
+    let link = $compile('<photo-album photos="data.album"></photo-album>');
+    let directive = link($scope);
+    $scope.$digest();
+    $httpBackend.flush();
+
+    $httpBackend.expectGET('./templates/first/full_image_template.html')
+      .respond(200, fullImageTemplate);
+    $httpBackend.expectGET('./templates/first/tiny_image_template.html')
+      .respond(200, tinyImageTemplate);
+
+
+    directive.isolateScope().mode = 'single';
+
+    $scope.$digest();
+    $httpBackend.flush();
+
+    let img = directive.find('img');
+
+    expect(img[0].src).toBe('https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w300');
+    expect(img[1].src).toBe('https://i.vimeocdn.com/portrait/58832_300x300.jpg');
+    expect(img[2].src).toBe('http://www.networkforgood.com/wp-content/uploads/2015/08/bigstock-Test-word-on-white-keyboard-27134336.jpg');
+    expect(img.length).toBe(4);
+    expect(img[0].height).toBe(100);
+    expect(img[0].width).toBe(100);
+
+  });
 
 });
