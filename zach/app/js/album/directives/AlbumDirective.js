@@ -13,13 +13,12 @@ module.exports = function(app) {
         $scope.changeView = function() {
           console.log($scope.mode);
         };
-        $scope.currentPhoto = $scope.photos;
         $scope.showPhoto = function(photo) {
           if (!photo) {
             $scope.mode = 'photos';
             return;
           }
-          $scope.currentPhoto = photo;
+          $scope.currentphoto = photo;
           $scope.mode = 'single';
         };
       }

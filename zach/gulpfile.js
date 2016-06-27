@@ -15,16 +15,6 @@ gulp.task('webpack:dev', function() {
     .pipe(gulp.dest('build/'));
 });
 
-// gulp.task('webpack:test', function() {
-//   return gulp.src('./test/client/entry.js')
-//     .pipe(webpack({
-//       output: {
-//         filename: 'test_bundle.js'
-//       }
-//     }))
-//     .pipe(gulp.dest('test/client'));
-// });
-
 gulp.task('staticfiles:dev', function() {
   return gulp.src('./app/**/*.html')
   .pipe(gulp.dest('build/'));
@@ -54,11 +44,34 @@ gulp.task('staticcssfiles:dev', function() {
 //   }, done).start();
 // });
 
+gulp.task('bundle:test', () => {
+  return gulp.src('./test/**/*_test.js')
+    .pipe(webpack({
+      output: {
+        filename: 'test_bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /\.html$/,
+          loader: 'html'
+        }]
+      }
+    })).pipe(gulp.dest('./test'));
+});
+
 gulp.task('app-lint', () => {
   gulp.src('./app/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format());
 });
+
+gulp.task('test-lint', () => {
+  gulp.src('./test/**/*_test.js')
+    .pipe(eslint())
+    .pipe(eslint.format());
+});
+
+gulp.task('lint', ['app-lint', 'test-lint']);
 
 gulp.task('build:dev', ['staticfiles:dev','staticcssfiles:dev', 'webpack:dev']);
 gulp.task('default', ['build:dev']);
