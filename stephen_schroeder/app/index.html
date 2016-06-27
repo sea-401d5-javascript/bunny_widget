@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bunny Images</title>
+</head>
+
+<body data-ng-app="bunnyWidget">
+
+    <main ng-cloak ng-controller="BunnyController as iCtrl">
+      <!-- {{iCtrl.url}} -->
+      <description-directive url="{{iCtrl.url}}" title="{{iCtrl.title}}" description="{{iCtrl.description}}"></description-directive>
+
+      <full-directive url="{{iCtrl.url}}" title="{{iCtrl.title}}" description="{{iCtrl.description}}"></full-directive>
+
+      <thumb-directive url="{{iCtrl.url}}" description="{{iCtrl.description}}"></thumb-directive>
+
+    </main>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
