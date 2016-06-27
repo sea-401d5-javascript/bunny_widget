@@ -7,7 +7,7 @@ require('../app/js/client');
 const bunnyTemplate = require('../app/templates/firstApp/bunnyApp.html');
 const thumbnailTemplate = require('../app/templates/firstApp/thumbnail.html');
 const imageTemplate = require('../app/templates/firstApp/image.html');
-const photoTemplate = require('../app/templates/firstApp/photo.html');
+// const photoTemplate = require('../app/templates/firstApp/photo.html');
 
 describe('directive test', () => {
   let $httpBackend;

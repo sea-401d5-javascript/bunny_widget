@@ -53,7 +53,7 @@
 	const bunnyTemplate = __webpack_require__(14);
 	const thumbnailTemplate = __webpack_require__(15);
 	const imageTemplate = __webpack_require__(16);
-	const photoTemplate = __webpack_require__(17);
+	// const photoTemplate = require('../app/templates/firstApp/photo.html');
 
 	describe('directive test', () => {
 	  let $httpBackend;
@@ -107,7 +107,7 @@
 	    let imgWidth = img.attr('width');
 	    let imgHeight = img.attr('height');
 
-	    console.log('thumbnale', directive);
+
 	    expect(imgUrl).toBe('www.test.com');
 	    expect(imgWidth).toBe('100px');
 	    expect(imgHeight).toBe('100px');
@@ -130,7 +130,7 @@
 	    let imgWidth = img.attr('width');
 	    let imgHeight = img.attr('height');
 
-	    console.log('large image', directive);
+
 	    expect(imgUrl).toBe('www.test.com');
 	    expect(imgWidth).toBe('400');
 	    expect(imgHeight).toBe('400');
@@ -35061,12 +35061,6 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n  <img src=\"{{url}}\" height=\"{{height}}\" width=\"{{width}}\"><br>\n\n</div>\n";
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div ng-if=\"mode === 'tiny'\">\n  <ul ng-show=\"mode === 'tiny'\" ng-hide=\"mode === 'text'\">\n    <li ng-repeat=\"photo in photos\">\n      <thumbnail-display url=\"photo.url\" ng-show=\"photoTextAgain\"   ng-click=\"toggle(photo)\"></thumbnail-display>\n    </li>\n  </ul>\n  <div ng-show=\"photoText\">\n    <image-display ng-click=\"toggle(photo)\" url=\"currentPhoto.url\"></image-display>\n    <!-- <img src=\"{{currentPhoto.url}}\"/> -->\n  </div>\n</div>\n\n<div ng-if=\"mode === 'text'\" ng-hide=\"mode === 'tiny'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <image-display ng-click=\"toggle(photo)\" url=\"photo.url\" width=\"400\" height=\"400\"></image-display>\n      <div ng-show=\"photoText\">\n        <title-directive title=\"photo.title\" url=\"photo.url\" description=\"photo.description\"></title-directive>\n      </div>\n    </li>\n  </ul>\n</div>\n<div class=\"toggle\">\n  <!-- <label for=\"\">Normal size<input type=\"radio\" name=\"mode\" value=\"normal\" ng-model=\"mode\" ng-change=\"changeView()\"/></label> -->\n  <label>Thumbnail and click image to single large image<input type=\"radio\" name=\"mode\" value=\"tiny\" ng-model=\"mode\" ng-chang=\"changeView()\"></label><br>\n  <lable>Large image and click image for text<input type=\"radio\" name=\"mode\" value=\"text\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n</div>\n";
 
 /***/ }
 /******/ ]);
