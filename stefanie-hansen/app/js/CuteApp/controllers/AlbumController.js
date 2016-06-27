@@ -11,7 +11,7 @@ module.exports = function(app) {
       title: 'Red Pandas',
       description: 'Like pandas, but cuter.',
       images: ['http://i.imgur.com/Bui0wgS.jpg', 'http://i.imgur.com/eziiTe1.jpg', 'http://i.imgur.com/CVsYUNQ.jpg', 'http://i.imgur.com/QuKhUoR.jpg', 'http://i.imgur.com/0YXORaB.jpg', 'http://i.imgur.com/IM5yOVz.jpg', 'http://i.imgur.com/ANsdnaH.jpg']
-    }
+    };
 
     this.kittens = {
       title: 'Kittens',
