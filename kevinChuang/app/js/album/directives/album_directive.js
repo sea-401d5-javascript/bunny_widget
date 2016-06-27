@@ -29,8 +29,7 @@ module.exports = function(app) {
         }, function() {
           scope.currentImg = controller.currentImg;
         });
-      },
-      require: '^ngController'
+      }
     };
   });
 };
