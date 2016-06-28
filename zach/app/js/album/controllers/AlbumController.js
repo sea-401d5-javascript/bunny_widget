@@ -1,6 +1,6 @@
 module.exports = function(app) {
   app.controller('AlbumController', ['$scope', function() {
-    this.currentPhoto;
+    this.currentphoto;
     this.catPhotos = [{
       title: 'cutekitty',
       url: 'https://pbs.twimg.com/profile_images/567285191169687553/7kg_TF4l.jpeg'
@@ -12,7 +12,7 @@ module.exports = function(app) {
       url: 'http://www.tpevent.com/wp-content/uploads/2016/01/cute-cat-images-tpevent-5.jpg'
     }, {
       title: 'cutestestkitty',
-      url: 'https://i.ytimg.com/vi/ef9Bu1mkX_Q/hqdefault.jpg'
+      url: 'http://2.bp.blogspot.com/-kpUw3uEl7JE/T7xmf0Tf8qI/AAAAAAAIq_E/_AtVyZsJTsA/s1600/cute+cat+pictures+(33).jpg'
     }];
     this.catTitle = 'Kitten Album';
     this.catDesc = 'A gallery of some cute cat photos';
