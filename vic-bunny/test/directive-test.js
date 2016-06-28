@@ -5,10 +5,10 @@ require('angular-mocks');
 require('../app/js/client');
 
 const myTestTemplate = require('../app/templates/photoalbum/mytest.html');
-// const photoAlbumTemplate = require('../app/templates/photoalbum/photoalbum-directive.html');
-const fullSizeTemplate = require('../app/templates/photoalbum/fullsize-directive.html');
-const thumbSizeTemplate = require('../app/templates/photoalbum/thumbsize-directive.html');
 const textOnlyTemplate = require('../app/templates/photoalbum/textonly-directive.html');
+const thumbSizeTemplate = require('../app/templates/photoalbum/thumbsize-directive.html');
+const fullSizeTemplate = require('../app/templates/photoalbum/fullsize-directive.html');
+const photoAlbumTemplate = require('../app/templates/photoalbum/photoalbum-directive.html');
 
 describe('directive tests', () => {
   let $httpBackend;
@@ -55,7 +55,6 @@ describe('directive tests', () => {
     $scope.$digest();
     $httpBackend.flush();
 
-    console.log(directive);
     let h1 = directive.find('h1');
     let h1text = h1.text();
     let h3 = directive.find('h3');
@@ -65,7 +64,7 @@ describe('directive tests', () => {
     expect(h3text).toBe('test description');
   });
 
-  it('should list url and alt for thumbnails', () => {
+  it('should show url and alt for thumbnails', () => {
     $httpBackend.expectGET('./templates/photoalbum/thumbsize-directive.html')
     .respond(200, thumbSizeTemplate);
 
@@ -81,17 +80,15 @@ describe('directive tests', () => {
     $scope.$digest();
     $httpBackend.flush();
 
-    console.log(directive);
     let img = directive.find('img');
     let imgattr = img.attr('src');
     let imgattr2 = img.attr('alt');
-    console.log(img.attr('src'));
 
     expect(imgattr).toBe('testUrl');
     expect(imgattr2).toBe('testAlt');
   });
 
-  it('should list url and alt for full size image', () => {
+  it('should show url and alt for full size image', () => {
     $httpBackend.expectGET('./templates/photoalbum/fullsize-directive.html')
     .respond(200, fullSizeTemplate);
 
@@ -106,13 +103,82 @@ describe('directive tests', () => {
     $scope.$digest();
     $httpBackend.flush();
 
-    console.log(directive);
     let img = directive.find('img');
     let imgattr = img.attr('src');
     let imgattr2 = img.attr('alt');
-    console.log(img.attr('src'));
 
     expect(imgattr).toBe('testUrl');
     expect(imgattr2).toBe('testAlt');
+  });
+
+  describe('photo album directive tests', () => {
+    it('should show 3 thumbnails in thumb mode', () => {
+      $httpBackend.expectGET('./templates/photoalbum/photoalbum-directive.html')
+      .respond(200, photoAlbumTemplate);
+      $httpBackend.expectGET('./templates/photoalbum/textonly-directive.html')
+      .respond(200, textOnlyTemplate);
+
+
+      $scope.dogalbum = {
+        photos: [{
+          url: 'test url1',
+          alt: 'test alt1'
+        },
+        {
+          url: 'test url2',
+          alt: 'test alt2'
+        },
+        {
+          url: 'test url3',
+          alt: 'test alt3'
+        }]
+      };
+
+      let element = angular.element('<photo-album photos="dogalbum.photos"></photo-album>');
+      let link = $compile(element);
+      let directive = link($scope);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      directive.isolateScope().mode = 'thumb';
+      $httpBackend.expectGET('./templates/photoalbum/thumbsize-directive.html')
+      .respond(200, thumbSizeTemplate);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      let thumb = directive.find('thumb-size');
+      console.log('thumb', thumb);
+
+      expect(thumb.length).toBe(3);
+
+    });
+
+    it('should display text only in text mode', () => {
+      $httpBackend.expectGET('./templates/photoalbum/photoalbum-directive.html')
+      .respond(200, photoAlbumTemplate);
+      $httpBackend.expectGET('./templates/photoalbum/textonly-directive.html')
+      .respond(200, textOnlyTemplate);
+
+      $scope.dogalbum = {
+        title: 'dogs test',
+        description: 'dogs test description'
+      };
+
+      let element = angular.element('<photo-album photos="dogalbum.photos" title="{{dogalbum.title}}" description="{{dogalbum.description}}"></photo-album>');
+      let link = $compile(element);
+      let directive = link($scope);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      directive.isolateScope().mode = 'text';
+
+      let textmode = directive.find('text-only');
+      let texttitle = (textmode.find('h1')).text();
+      let textdesc = (textmode.find('h3')).text();
+      console.log('text', textmode);
+
+      expect(texttitle).toBe('dogs test');
+      expect(textdesc).toBe('dogs test description');
+    });
   });
 });
