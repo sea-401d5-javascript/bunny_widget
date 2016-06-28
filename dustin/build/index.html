@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First App</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body data-ng-app="BunnyApp">
+
+    <main ng-controller="ImageController as imagectrl" ng-cloak>
+
+      <first-directive url="{{imagectrl.url}}" title="{{imagectrl.title}}" desc="{{imagectrl.desc}}"></first-directive>
+      <hr />
+      <second-directive url="{{imagectrl.url}}"></second-directive>
+      <hr />
+      <third-directive url="{{imagectrl.url}}" title="{{imagectrl.title}}" desc="{{imagectrl.desc}}"></third-directive>
+
+
+
+
+
+    </main>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
