@@ -8,12 +8,12 @@ module.exports = function(app) {
         description: '@'
       },
       controller: function($scope) {
-        $scope.mode = 'table';
+        //$scope.mode = 'table';
         $scope.changeView = function() {
           console.log($scope.mode);
         };
         $scope.fullSize = function(photo) {
-          $scope.mode != 'table';
+          //$scope.mode != 'table';
           if(!photo) {
             $scope.mode = 'grid';
             return;

@@ -6,7 +6,8 @@ const del = require('del');
 const paths = {
   html: __dirname + '/app/**/*.html',
   js: __dirname + '/app/js/client.js',
-  css:__dirname + '/app/css/style.css'
+  css:__dirname + '/app/css/style.css',
+  test:__dirname + '/test/**/*_test.js'
 };
 
 gulp.task('clean', () => {
@@ -34,3 +35,19 @@ gulp.task('bundle', ['clean'], () => {
 });
 
 gulp.task('build', ['bundle', 'clean', 'copy', 'css']);
+
+gulp.task('bundle:test', () => {
+  return gulp.src(paths.test)
+  .pipe(webpack({
+    output: {
+      filename: 'test_bundle.js'
+    },
+    module: {
+      loaders: [{
+        test: /\.html$/,
+        loader: 'html'
+      }]
+    }
+  }))
+  .pipe(gulp.dest('test/'));
+});
