@@ -2,5 +2,5 @@
 
 const angular = require('angular');
 
-const BunnyApp = angular.module('BunnyApp', []);
-require('./BunnyApp')(BunnyApp);
+const CuteApp = angular.module('CuteApp', []);
+require('./CuteApp')(CuteApp);

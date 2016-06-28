@@ -1,11 +1,9 @@
 module.exports = function(app) {
   app.directive('thumbnailDirective', function() {
     return {
-      restrict: 'E',
-      templateUrl: './templates/BunnyApp/thumbnail.html',
+      templateUrl: './templates/CuteApp/thumbnail.html',
       scope: {
-        url: '@',
-        description: '@'
+        imageurl: '='
       }
     };
   });

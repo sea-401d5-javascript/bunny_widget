@@ -5,18 +5,19 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bunny Images</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Cute Mammals</title>
 </head>
 
-<body data-ng-app="BunnyApp">
+<body data-ng-app="CuteApp">
 
-    <main ng-cloak ng-controller="ImageController as image">
+    <main ng-cloak ng-controller="AlbumController as albumctrl">
 
-      <description-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></description-directive>
+      <h1>Sloths, Red Pandas, and Kittens, Oh My!</h1>
 
-      <full-directive url="{{image.url}}" title="{{image.title}}" description="{{image.description}}"></full-directive>
-
-      <thumbnail-directive url="{{image.url}}" description="{{image.description}}"></thumbnail-directive>
+      <photo-album-directive animal="albumctrl.sloths" class="album"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.redPandas" class="album"></photo-album-directive>
+      <photo-album-directive animal="albumctrl.kittens" class="album"></photo-album-directive>
 
     </main>
     <script src="bundle.js"></script>
