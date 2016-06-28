@@ -1,14 +1,15 @@
-<div>
+<div ng-init="mode = 'thumbnails'">
 
-  <div ng-hide="mode === 'thumbnails'">
-    <description-directive animal="animal"></description-directive>
+  <description-directive animal="animal" ng-show="mode === 'descriptions'"></description-directive>
+
+  <div ng-repeat="imageurl in animal.images" class="gallery">
+    <thumbnail-directive imageUrl="imageurl" ng-click="toggleImage(imageurl)" ng-show="mode === 'thumbnails'"></thumbnail-directive>
   </div>
 
-  <ul ng-hide="mode === 'descriptions'">
-    <thumbnail-directive animal = "animal" ng-repeat="image in animal.images" image="image"></thumbnail-directive>
-  </ul>
+  <full-directive ng-click="toggleImage()" currentimageurl="currentimageurl" ng-show="mode === 'full'"></full-directive>
 
-  <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
-  <label>Thumbnails<input type="radio" name="mode" value="thumbnails" ng-model="mode" ng-change="changeView()"/></label>
-
+  <div>
+    <label>Descriptions<input type="radio" name="mode" value="descriptions" ng-model="mode" ng-change="changeView()"/></label>
+    <label>Thumbnails<input type="radio" name="mode" value="thumbnails" ng-model="mode" ng-change="changeView()"/></label>
+  </div>
 </div>

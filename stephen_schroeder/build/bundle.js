@@ -31622,8 +31622,7 @@
 	    return {
 	      templateUrl: './templates/CuteApp/description.html',
 	      scope: {
-	        animal: '=',
-	        image: '='
+	        animal: '='
 	      }
 	    };
 	  });
@@ -31639,8 +31638,7 @@
 	    return {
 	      templateUrl: './templates/CuteApp/full.html',
 	      scope: {
-	        animal: '=',
-	        image: '='
+	        currentimageurl: '='
 	      }
 	    };
 	  });
@@ -31656,8 +31654,7 @@
 	    return {
 	      templateUrl: './templates/CuteApp/thumbnail.html',
 	      scope: {
-	        animal: '=',
-	        image: '='
+	        imageurl: '='
 	      }
 	    };
 	  });
@@ -31678,6 +31675,14 @@
 	      controller: function($scope) {
 	        $scope.changeView = function() {
 	          $scope.mode === 'thumbnails' ? $scope.mode === 'descriptions' : $scope.mode === 'thumbnails';
+	        };
+	        $scope.toggleImage = function(image) {
+	          if (image) {
+	            $scope.currentimageurl = image;
+	            $scope.mode = 'full';
+	            return;
+	          }
+	          $scope.mode = 'thumbnails';
 	        };
 	      }
 	    };
