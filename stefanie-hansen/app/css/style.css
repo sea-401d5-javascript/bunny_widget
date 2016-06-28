@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+  font-family: Helvetica;
+}
+
+img {
+  display: inline;
+  border-radius: 15px;
+}
+
+input {
+  margin: 20px 0;
+  margin-left: 5px;
+}
+
+label {
+  margin: 20px 0;
+}
+
+.gallery {
+  display: inline;
+}
