@@ -180,5 +180,49 @@ describe('directive tests', () => {
       expect(texttitle).toBe('dogs test');
       expect(textdesc).toBe('dogs test description');
     });
+
+    it('should display a full size image when thumbnail is clicked', () => {
+      $httpBackend.expectGET('./templates/photoalbum/photoalbum-directive.html')
+      .respond(200, photoAlbumTemplate);
+      $httpBackend.expectGET('./templates/photoalbum/textonly-directive.html')
+      .respond(200, textOnlyTemplate);
+
+      $scope.dogsalbum = {
+        photos: [{
+          url: 'test url1',
+          alt: 'test alt1'
+        },
+        {
+          url: 'test url2',
+          alt: 'test alt2'
+        },
+        {
+          url: 'test url3',
+          alt: 'test alt3'
+        }]
+      };
+
+      let element = angular.element('<photo-album photos="dogalbum.photos" title="{{dogalbum.title}}" description="{{dogalbum.description}}"></photo-album>');
+      let link = $compile(element);
+      let directive = link($scope);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      directive.isolateScope().showThumbAsFull('dogalbum.photos[0]');
+      $httpBackend.expectGET('./templates/photoalbum/fullsize-directive.html')
+      .respond(200, fullSizeTemplate);
+      $scope.$digest();
+      $httpBackend.flush();
+
+      let imgwidth = directive.find('img').attr('width');
+      let imgheight = directive.find('img').attr('height');
+      let full = directive.find('full-size');
+      console.log('full', full);
+
+      expect(directive.isolateScope().mode).toBe('full');
+      expect(imgwidth).toBe('400');
+      expect(imgheight).toBe('400');
+      expect(full.length).toBe(1);
+    });
   });
 });
