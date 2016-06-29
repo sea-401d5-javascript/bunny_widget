@@ -1,0 +1,34 @@
+
+
+
+<div ng-if="mode === 'single'">
+
+  <ul>
+    <li ng-repeat="photo in photos">
+      <tiny-image-directive ng-show="photoTextAgain"   ng-click="toggle(photo)" url="photo.url"></tiny-image-directive>
+    </li>
+  </ul>
+  <div ng-show="photoText">
+    <full-image-directive ng-click="toggle(photo)" url="currentPhoto.url"></full-image-directive>
+  </div>
+</div>
+
+<div ng-if="mode === 'list'">
+
+  <ul>
+    <li ng-repeat="photo in photos">
+      <full-image-directive ng-click="toggle(photo)" url="photo.url"></full-image-directive>
+      <div ng-show="photoText">
+        <first-image-directive title="photo.title"></first-image-directive>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<lable>Full Image Album<input type="radio" name="mode" value="list" ng-model="mode" ng-change="changeView()"/></lable>
+<lable>Tiny Image Album<input type="radio" name="mode" value="single" ng-model="mode" ng-change="changeView()"/></lable>
+
+<div ng-hide="test">
+  <h3>{{title}}</h3>
+  <h3>{{description}}</h3>
+</div>
