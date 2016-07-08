@@ -46,9 +46,9 @@
 
 	'use strict';
 
-	const angular = __webpack_require__(1);
+	// const angular = require('angular');
 
-	let ImageApp = angular.module('ImageApp', []);
+	var ImageApp = __webpack_require__(1).module('ImageApp', []);
 	__webpack_require__(3)(ImageApp);
 
 
