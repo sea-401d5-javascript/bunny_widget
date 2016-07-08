@@ -42,6 +42,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.html, ['copy']);
   gulp.watch(paths.js, ['bundle']);
   gulp.watch('./app/css/app.css', ['copy']);
+  gulp.watch('./test/**/*_test.js', ['bundle:test']);
 });
 
 gulp.task('default', ['bundle:test', 'bundle', 'copy']);
