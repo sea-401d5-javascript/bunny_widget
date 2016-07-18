@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Butt Sniffer App</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body data-ng-app="ButtSnifferApp">
+    <main ng-cloak ng-controller="PhotoAlbumController as albums">
+
+      <h1>{{albums.sugarGliders.title}}</h1>
+      <h3>{{albums.sugarGliders.description}}</h1>
+      <photo-album photos="albums.sugarGliders.album"></photo-album>
+      <h1>{{albums.badPussyCats.title}}</h1>
+      <h3>{{albums.badPussyCats.description}}</h1>
+      <photo-album photos="albums.badPussyCats.album"></photo-album>
+      <h1>{{albums.superCoolMarineIguanas.title}}</h1>
+      <h3>{{albums.superCoolMarineIguanas.description}}</h1>
+      <photo-album photos="albums.superCoolMarineIguanas.album"></photo-album>
+
+    </main>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
