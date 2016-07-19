@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bunny App</title>
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body data-ng-app="BunnyApp">
+    <main ng-cloak ng-controller="PhotosController as albums">
+      <!-- <div>
+
+        <title-directive title="{{settings.title}}" url="{{settings.url}}" description="{{settings.description}}"></title-directive>
+
+        <thumbnail-display url="{{settings.url}}"></thumbnail-display>
+
+        <image-display url="{{settings.url}}" height="{{settings.height}}" width="{{settings.width}}" title="{{settings.title}}" big="{{settings.big}}"></image-display>
+      </div> -->
+
+
+      <h1>{{albums.dragonPhotos.title}}</h1>
+      <h3>{{albums.dragonPhotos.description}}</h1>
+      <photo-album photos="albums.dragonPhotos.photos"></photo-album><br>
+      <h1>{{albums.cowPhotos.title}}</h1>
+      <h3>{{albums.cowPhotos.description}}</h1>
+      <photo-album photos="albums.cowPhotos.photos"></photo-album><br>
+      <h1>{{albums.pupPhotos.title}}</h1>
+      <h3>{{albums.pupPhotos.description}}</h1>
+      <photo-album photos="albums.pupPhotos.photos"></photo-album><br>
+
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>

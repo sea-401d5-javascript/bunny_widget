@@ -1,0 +1,28 @@
+
+<div ng-if="mode === 'tiny'">
+  <ul ng-show="mode === 'tiny'" ng-hide="mode === 'text'">
+    <li ng-repeat="photo in photos">
+      <thumbnail-display url="photo.url" ng-show="photoTextAgain"   ng-click="toggle(photo)"></thumbnail-display>
+    </li>
+  </ul>
+  <div ng-show="photoText">
+    <image-display ng-click="toggle(photo)" url="currentPhoto.url"></image-display>
+    <!-- <img src="{{currentPhoto.url}}"/> -->
+  </div>
+</div>
+
+<div ng-if="mode === 'text'" ng-hide="mode === 'tiny'">
+  <ul>
+    <li ng-repeat="photo in photos">
+      <image-display ng-click="toggle(photo)" url="photo.url" width="400" height="400"></image-display>
+      <div ng-show="photoText">
+        <title-directive title="photo.title" url="photo.url" description="photo.description"></title-directive>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="toggle">
+  <!-- <label for="">Normal size<input type="radio" name="mode" value="normal" ng-model="mode" ng-change="changeView()"/></label> -->
+  <label>Thumbnail and click image to single large image<input type="radio" name="mode" value="tiny" ng-model="mode" ng-chang="changeView()"></label><br>
+  <lable>Large image and click image for text<input type="radio" name="mode" value="text" ng-model="mode" ng-change="changeView()"/></lable>
+</div>
