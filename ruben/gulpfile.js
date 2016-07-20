@@ -27,9 +27,15 @@ gulp.task('bundle:test', () => {
     .pipe(webpack({
       output: {
         filename: 'test_bundle.js'
+      },
+      module: {
+        loaders: [{
+          test: /\.html$/,
+          loader: 'html'
+        }]
       }
     }))
-    .pipe(gulp.dest(__dirname + '/test'))
+    .pipe(gulp.dest(__dirname + '/test'));
 });
 
 gulp.task('watch', () => {
@@ -38,4 +44,4 @@ gulp.task('watch', () => {
   gulp.watch('./app/css/app.css', ['copy']);
 });
 
-gulp.task('default', ['bundle:test', 'bundle', 'copy',]);
+gulp.task('default', ['bundle:test', 'bundle', 'copy']);

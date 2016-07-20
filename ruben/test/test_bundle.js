@@ -49,6 +49,11 @@
 	__webpack_require__(3);
 	__webpack_require__(4);
 
+	const fullTemplate = __webpack_require__(14);
+	const smallTemplate = __webpack_require__(15);
+	const titleTemplate = __webpack_require__(16);
+	const albumTemplate = __webpack_require__(17);
+
 	describe('directive tests', () => {
 	  let $httpBackend;
 	  let $scope;
@@ -63,9 +68,125 @@
 	    });
 	  });
 
-	  it('should be a test', () => {
-	  expect(true).toBe(true);
-	});
+	  it('should get the full image title', () => {
+	    $httpBackend.expectGET('./templates/full-image.html')
+	     .respond(200, fullTemplate);
+	    $scope.test = 'full title';
+	    let link = $compile('<full-directive title="test"></full-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h1 = directive.find('h1');
+	    let text = h1.text();
+
+	    expect(text).toBe('full title');
+	  });
+
+	  it('should get the full image description', () => {
+	    $httpBackend.expectGET('./templates/full-image.html')
+	     .respond(200, fullTemplate);
+	    $scope.test = 'full description';
+	    let link = $compile('<full-directive description="test"></full-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h2 = directive.find('h2');
+	    let text = h2.text();
+
+	    expect(text).toBe('full description');
+	  });
+
+	  it('should get the small image title', () => {
+	    $httpBackend.expectGET('./templates/small-image.html')
+	    .respond(200, smallTemplate);
+	    $scope.test = 'small title';
+	    let link = $compile('<small-directive title="test"></small-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h1 = directive.find('h1');
+	    let text = h1.text();
+
+	    expect(text).toBe('small title');
+	  });
+
+	  it('should get the small image description', () => {
+	    $httpBackend.expectGET('./templates/small-image.html')
+	     .respond(200, smallTemplate);
+	    $scope.test = 'small description';
+	    let link = $compile('<small-directive description="test"></small-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h2 = directive.find('h2');
+	    let text = h2.text();
+
+	    expect(text).toBe('small description');
+	  });
+
+	  it('should get the title directive title', () => {
+	    $httpBackend.expectGET('./templates/title-image.html')
+	     .respond(200, titleTemplate);
+	    $scope.test = 'title title';
+	    let link = $compile('<title-directive title="test"></title-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h1 = directive.find('h1');
+	    let text = h1.text();
+
+	    expect(text).toBe('test');
+	  });
+
+	  it('should get the title directive description', () => {
+	    $httpBackend.expectGET('./templates/title-image.html')
+	     .respond(200, titleTemplate);
+	    $scope.test = 'title description';
+	    let link = $compile('<title-directive description="test"></title-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h2 = directive.find('h2');
+	    let text = h2.text();
+
+	    expect(text).toBe('test');
+	  });
+
+	  it('should get the album directive title', () => {
+	    $httpBackend.expectGET('./templates/album.html')
+	    .respond(200, albumTemplate);
+	    $scope.test = 'album title';
+	    let link = $compile('<album-directive title="test"></album-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h1 = directive.find('h1');
+	    let text = h1.text();
+
+	    expect(text).toBe('album title');
+	  });
+
+	  it('should get the album directive description', () => {
+	    $httpBackend.expectGET('./templates/album.html')
+	     .respond(200, albumTemplate);
+	    $scope.test = 'album description';
+	    let link = $compile('<album-directive description="test"></album-directive>');
+	    let directive = link($scope);
+	    $scope.$digest();
+	    $httpBackend.flush();
+
+	    let h2 = directive.find('h2');
+	    let text = h2.text();
+
+	    expect(text).toBe('album description');
+	  });
 	});
 
 
@@ -34909,6 +35030,30 @@
 	  });
 	};
 
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n  <div>\n    <h1>{{title}}</h1>\n    <h2>{{description}}</h2>\n  </div>\n  <img src=\"{{url}}\" alt=\"\">\n</div>\n";
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n  <div>\n    <h1>{{title}}</h1>\n    <h2>{{description}}</h2>\n  </div>\n  <img src=\"{{url}}\" height= \"100px\" width=\"100px\" alt=\"{{title}}\">\n</div>\n";
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n  <h1>{{title}}</h1>\n  <h3>{{url}}</h3>\n  <h2>{{description}}</h2>\n</div>\n";
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-if=\"mode === 'single'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <small-directive ng-show=\"photoTextAgain\"   ng-click=\"toggle(photo)\" url=\"photo.url\"></small-directive>\n    </li>\n  </ul>\n  <div ng-show=\"photoText\">\n    <full-directive ng-click=\"toggle(photo)\" url=\"currentPhoto.url\"></full-directive>\n  </div>\n</div>\n\n<div ng-if=\"mode === 'list'\">\n  <ul>\n    <li ng-repeat=\"photo in photos\">\n      <full-directive ng-click=\"toggle(photo)\" url=\"photo.url\"></full-directive>\n      <div ng-show=\"photoText\">\n        <title-directive title=\"photo.title\"></title-directive>\n      </div>\n    </li>\n  </ul>\n</div>\n\n<lable>Full Image Album<input type=\"radio\" name=\"mode\" value=\"list\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n<lable>Small Image Album<input type=\"radio\" name=\"mode\" value=\"single\" ng-model=\"mode\" ng-change=\"changeView()\"/></lable>\n\n\n<div ng-hide=\"test\">\n  <h1>{{title}}</h1>\n  <h2>{{description}}</h2>\n</div>\n";
 
 /***/ }
 /******/ ]);
